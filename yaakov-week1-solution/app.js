@@ -1,35 +1,39 @@
 (function () {
   'use strict';
 
-  angular.module('LunchCheckerApp', [])
-  .controller('DishController', DishController);
+  angular.module('LunchCheck', [])
+  .controller('LunchCheckController', LunchCheckController);
 
-  DishController.$inject = ['$scope'];
-  function DishController ($scope) {
-    $scope.dishes = "";
-    $scope.total = 0;
+  LunchCheckController.$inject = ['$scope'];
+  function LunchCheckController ($scope) {
+    $scope.input = "";
+    $scope.dishes = 0;
     $scope.message = "";
 
     $scope.check = function() {
-      if (calculateDishes($scope.dishes) > 2) {
-        $scope.message = "Too much!";
+      if ($scope.input.length < 1) {
+        $scope.message = "Please, enter some dish.";
+        return;
       }
-      else {
-        $scope.message = "Enjoy!";
-      }
-      // $scope.message = (calculateDishes($scope.dishes) > 2 ? "Too much!" : "Bon appetit!");
+      $scope.dishes = calculateDishes($scope.input);
+
+      $scope.message = ($scope.dishes > 3 ? "Too much!" : "Enjoy!");
+
+      $scope.message += " (" + $scope.dishes + " dishes)";
     }
 
     function calculateDishes(string) {
-      // var total = 0;
-      var dishes = string.split(',');
-      return dishes.length;
-
-      // for (var i = 0 ; i < string.length ; i++) {
-      //   total += string.charCodeAt(i);
+      var qtt = string.split(',');
+      return qtt.length;
+      // var dishCount = 0;
+      // for (var i = 0 ; i < qtt.length ; i++) {
+      //   if (!qtt[i].trim()) {
+      //     dishCount++;
+      //     console.log(dishCount);
+      //   }
       // }
-      // return total;
+      // return dishCount;
     }
-  });
+  }
 
 })();

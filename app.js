@@ -2,22 +2,35 @@
   'use strict';
 
   angular.module('myApp', [])
+  .controller('myController', myController);
 
-  .controller('myController', function ($scope) {
-    $scope.name = "";
-    $scope.total = 0;
+  myController.$inject = ['$scope'];
+  function myController ($scope) {
+    $scope.dishes = "";
+    $scope.message = "";
 
-    $scope.displayTotal = function() {
-      $scope.total = calculateTotal($scope.name);
+    $scope.check = function() {
+      $scope.total = calculateTotal($scope.dishes);
+      if ($scope.total > 3) {
+        $scope.message = "Too much!";
+      }
+      else {
+        $scope.message = "Enjoy!";
+      }
     }
 
     function calculateTotal(string) {
-      var total = 0;
-      for (var i = 0 ; i < string.length ; i++) {
-        total += string.charCodeAt(i);
+      var dishCount = 0;
+      if (string.length > 0) {
+        dishCount++;
       }
-      return total;
+      for (var i = 0 ; i < string.length ; i++) {
+        if (string.charAt(i) === ",") {
+          dishCount ++;
+        }
+      }
+      return dishCount;
     }
-  });
+  }
 
 })();

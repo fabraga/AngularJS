@@ -4,25 +4,25 @@
     <meta charset="utf-8">
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
-    <title>AngularJS Projects by Fabricio Luiz Braga</title>
+    <title>AngularJS Projects by Fabricio Braga</title>
     <link rel="stylesheet" type="text/css" href="css/fabraga.css">
   </head>
   <body>
-    <h1>AngularJS Projects by Fabricio Luiz Braga</h1>
-    <div id="header">
-      <div id="search">
-        Name: <input type="text" id="name">
-        <span id="output"></span>
+    <h1>AngularJS Projects by Fabricio Braga</h1>
+    <div id="main" class="container" ng-controller="myController">
+      <h1>Lunch Checker</h1>
+      <div id="menu" class="form-group">
+        <input id="lunch-menu" type="text"
+          placeholder="list comma separated dishes you usually have for lunch"
+          class="form-control"
+          ng-model="dishes">
       </div>
-    </div>
-    <h1>Controller #1</h1>
-    <div id="main" ng-controller="myController">
-      <input type="text" ng-model="name" ng-keyup="displayTotal();">
-      <div>
-        {{total}}
+      <div class="form-group">
+        <button class="btn btn-default" ng-click="check()">Check If Too Much</button>
       </div>
-    </div>
-    <div id="footer">
+      <div class="form-group message">
+        {{message}}
+      </div>
     </div>
   </body>
 </html>
