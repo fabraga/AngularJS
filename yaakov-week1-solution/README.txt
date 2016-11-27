@@ -1,0 +1,1 @@
+Yaakov's AngularJS Week 1 - Assignment #1 Solution By: Fabricio Braga (fabraga)
