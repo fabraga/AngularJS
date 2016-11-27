@@ -1,1 +1,0 @@
-AngularJS Module 1 Solution (Week 1) - Assignment 1 - By Fabricio Luiz Braga
