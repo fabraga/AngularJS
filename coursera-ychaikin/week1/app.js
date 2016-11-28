@@ -16,9 +16,7 @@
         return;
       }
       $scope.dishes = calculateDishes($scope.input);
-
       $scope.message = ($scope.dishes > 3 ? "Too much!" : "Enjoy!");
-
       $scope.message += " (" + $scope.dishes + " dishes)";
     }
 

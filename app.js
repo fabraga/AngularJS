@@ -10,7 +10,7 @@
     $scope.message = "";
 
     $scope.check = function() {
-      $scope.total = calculateTotal($scope.dishes);
+      $scope.total = calculateDishes($scope.dishes);
       if ($scope.total > 3) {
         $scope.message = "Too much!";
       }
@@ -19,7 +19,7 @@
       }
     }
 
-    function calculateTotal(string) {
+    function calculateDishes(string) {
       var dishCount = 0;
       if (string.length > 0) {
         dishCount++;
