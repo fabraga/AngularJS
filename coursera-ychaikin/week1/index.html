@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>Lunch Checker</title>
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <style> .message { font-size: 1.3em; font-weight: bold; }</style>
   </head>
 <body>
@@ -12,15 +12,15 @@
     <h1>Lunch Checker</h1>
     <div id="menu" class="form-group">
       <input id="lunch-menu" type="text"
-        placeholder="list comma separated dishes you usually have for lunch"
+        placeholder="list comma separated dishes (',,' OR ', ,' WILL NOT BE COUNTED)"
         class="form-control"
         ng-model="input">
     </div>
     <div class="form-group">
-      <button class="btn btn-default" ng-click="check()">Check If Too Much</button>
+      <button class="btn btn-default" ng-click="checkDishes()">Check If Too Much</button>
     </div>
-    <div class="form-group message">
-      {{message}}
+    <div class="form-group {{status}} message">
+      <span class="help-block">{{message}}</span>
     </div>
   </div>
   <script src="../../angular.min.js"></script>

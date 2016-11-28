@@ -7,30 +7,37 @@
   LunchCheckController.$inject = ['$scope'];
   function LunchCheckController ($scope) {
     $scope.input = "";
-    $scope.dishes = 0;
-    $scope.message = "";
 
-    $scope.check = function() {
+    $scope.checkDishes = function() {
       if ($scope.input.length < 1) {
         $scope.message = "Please, enter some dish.";
+        $scope.status = "has-error";
         return;
       }
-      $scope.dishes = calculateDishes($scope.input);
-      $scope.message = ($scope.dishes > 3 ? "Too much!" : "Enjoy!");
-      $scope.message += " (" + $scope.dishes + " dishes)";
+      var status = "";
+      var msg = "";
+      var dishes = calculateDishes($scope.input);
+
+      if (dishes > 3) {
+        status = "has-error";
+        msg = "too much!";
+      } else {
+        status = "has-success";
+        msg = "good. Enjoy!";
+      }
+      $scope.message = dishes + " dishes is "+msg;
+      $scope.status = status;
     }
 
     function calculateDishes(string) {
       var qtt = string.split(',');
-      return qtt.length;
-      // var dishCount = 0;
-      // for (var i = 0 ; i < qtt.length ; i++) {
-      //   if (!qtt[i].trim()) {
-      //     dishCount++;
-      //     console.log(dishCount);
-      //   }
-      // }
-      // return dishCount;
+      var empties = 0;
+      for(var item in qtt) {
+        if(!qtt[item].trim()) {
+          empties++;
+        }
+      }
+      return qtt.length - empties;
     }
   }
 
