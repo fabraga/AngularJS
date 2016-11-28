@@ -1,2 +1,2 @@
 # AngularJS
-My AngularJS Progress
+My AngularJS Progress (Studying & Projects)
