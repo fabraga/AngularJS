@@ -2,19 +2,89 @@
 <html ng-app="myApp">
   <head>
     <meta charset="utf-8">
-    <title>AngularJS Projects by Fabricio Braga</title>
-    <link rel="stylesheet" type="text/css" href="css/fabraga.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fabraga.css">
+    <title>AngularJS Studying by Fabricio Braga</title>
   </head>
   <body>
-    <div class="container" style="height:80px;">
-      <h1>AngularJS Studying &amp; Projects by Fabricio Braga</h1>
+    <div class="container" style="height:120px;">
+      <h1>AngularJS Studying by Fabricio Braga</h1>
     </div>
-    <div id="main" class="container" ng-controller="myController">
-      <a href="https://fabraga.github.io/AngularJS/coursera-ychaikin/week1/" name="Lunch Checker">
-        <button class="btn btn-default">Lunch Checker</button>
+    <div id="main" class="container coursera">
+      <h2>Coursera Assignments</h2>
+      <a href="https://fabraga.github.io/AngularJS/coursera-ychaikin/week1/"
+         alt="Lunch Checker" class="linkButton">Lunch Checker
       </a>
     </div>
+
+    <div class="controllers">
+      <h2>Exercising...</h2>
+      <div>
+        Watchers: {{ $$watchersCount }}
+      </div>
+      <!-- Filters -->
+      <div class="controller" ng-controller="filterController">
+        <h3>Filters</h3>
+        <div class="line">
+          <input type="text"
+                class="input"
+                ng-model="product"
+                placeholder="Product"> {{product}}<br>
+          <span>Price: {{ showPrice(); }}</span><br>
+          <div style="display: inline-block;">
+            <button class="changeButton" ng-click="capitalize()">Uppercase</button>
+            <button class="changeButton" ng-click="lowercase()">Lowercase</button>
+            <button class="changeButton" ng-click="altercase()">Altercase</button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Counting with Digest, Apply and $timeout -->
+      <div class="controller" ng-controller="CounterController">
+        <h3>Digest Cycle</h3>
+        <div>
+          <div>
+            <button class="changeButton" ng-click="upCount()">INCREMENT...</button>
+          </div>
+          <div>
+            <button class="changeButton" ng-click="upDigest()">with setTimeout and <b>$digest</b></button>
+          </div>
+          <div>
+            <button class="changeButton" ng-click="upApply()">with setTimeout and <b>$apply</b></button>
+          </div>
+          <div>
+            <button class="changeButton" ng-click="upTimeout()">with Angular's <b>$timeout</b></button>
+          </div>
+        </div>
+        <div>
+          Count: {{ counter }}
+        </div>
+      </div>
+
+      <div class="controller" ng-controller="BindingController">
+        <h3>Bindings<h3>
+        <h4>(2-way/1-way/1-time)</h4>
+        <div>
+          2-way:
+          First Name: <input type="text"
+                            class="input"
+                            ng-model="firstName">
+        </div>
+        <div>
+          1-way: <span>Full Name: {{ getFullName() }})</span>
+        </div>
+        <div>
+          1-time:
+          <button class="changeButton"
+                  ng-click="setFullName()"
+                  style="display: inline-block">Set Full Name</button>
+          : {{ :: fullName }} <br>
+        </div>
+      </div>
+
+    </div>
+
     <script src="js/angular.min.js"></script>
     <script src="js/app.js"></script>
   </body>

@@ -1,0 +1,101 @@
+body {
+  background-color: #ccc;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 140%;
+}
+
+h1 {
+  color: white;
+  text-shadow: 2px 2px 10px #333;
+}
+
+h2 {
+  color: #238;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px #fff;
+}
+
+.controllers h2 {
+  color: #721;
+}
+
+h4 {
+  margin-top: -10px;
+}
+
+.input {
+  width: 100px;
+}
+
+.line {
+  margin: 5px;
+}
+
+.coursera {
+  background-color: #79f;
+  border: solid 2px;
+  border-style: outset;
+  border-radius: 12px;
+  padding: 0 5px 20px 5px;
+  text-align: center;
+}
+
+.controllers {
+  margin: 10px;
+  background-color: #e76;
+  padding: 0 10px 5px 10px;
+  display: inline-block;
+  border: solid 1px;
+  border-style: outset;
+  border-radius: 12px;
+}
+.controller {
+  margin: 10px 5px;
+  background-color: #e98;
+  padding: 0 10px 10px 10px;
+  border: solid 1px;
+  border-style: inset;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+}
+
+.linkButton {
+  border: 3px solid #4C50AF;
+  color: #2244aa;
+  border-radius: 12px;
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.linkButton:hover {
+  background-color: #4C50AF;
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+button {
+  margin: 1px;
+  border-radius: 8px;
+}
+button:hover {
+  color: white;
+}
+button:focus {
+  outline: 0;
+}
+.changeButton {
+  background-color: inherit;
+  border: 2px solid #AF504C;
+  display: block;
+}
+.changeButton:hover {
+  background-color: #AF504C;
+}
