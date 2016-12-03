@@ -1,0 +1,19 @@
+<div class="shoppingList">
+  <h5><b>{{ list.title }}</b> {{ list.total }}</h5>
+  <div class="shoppingListItems">
+    <ol class="listOrder">
+      <li ng-repeat="item in list.items">
+        <!-- <li ng-repeat="item in showList.items | filter : showList.search"> -->
+        <!-- {{getIndex($index+1)}}. -->
+        <button class="removeItem" ng-click="list.onRemove({index: $index});">x</button>
+        <input class="qtty" ng-model="item.qtty">
+        <span class="itemName">
+          {{ item.name }}
+        </span>
+      </li>
+    </ol>
+  </div>
+  <div class="error" ng-transclude></div>
+</div>
+<!-- <div class="error" ng-if="list.cookiesInList()">COOKIES DETECTED!!!</div> -->
+<!-- <div class="error" ng-if="list.cookiesInList()">{{ list.errorMessage }}</div> -->

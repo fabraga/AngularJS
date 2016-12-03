@@ -1,112 +1,93 @@
 (function () {
   'use strict';
 
-  angular.module('myApp', [])
-  .controller('CounterController', CounterController)
-  .controller('filterController', FilterController)
-  .filter('altercase', AlternateCaseFilter)
-  .controller('BindingController', BindingController)
+  angular.module('FABRAGA', [])
   .controller('ShoppingListController', ShoppingListController)
   .provider('ShoppingListService', ShoppingListServiceProvider)
+  // .controller('ShoppingListDirectiveController', ShoppingListDirectiveController)
+  .directive('shoppingList', ShoppingListDirective)
   .config(Config);
+  // .factory('ShoppingListFactory', ShoppingListFactory);
+  // .service('ShoppingListService', ShoppingListService);
 
   Config.$inject = ['ShoppingListServiceProvider'];
   function Config(ShoppingListServiceProvider) {
-    ShoppingListServiceProvider.defaults.maxItems = 5;
+    ShoppingListServiceProvider.defaults.maxItems = 10;
   }
 
-  // .factory('ShoppingListFactory', ShoppingListFactory);
-  // .service('ShoppingListService', ShoppingListService);
-  //.filter('replacefield', ReplaceFilter);
-
-  CounterController.$inject = ['$scope', '$timeout'];
-  function CounterController($scope, $timeout) {
-    $scope.counter = 0;
-
-    $scope.upCount = function () {
-      $scope.counter++;
+  // Shopping List directive's Factory Function
+  function ShoppingListDirective() {
+    var ddo = {
+      templateUrl: 'shoppingList.html',
+      scope: {
+        items: '<',
+        title: '@',
+        total: '@',
+        detect: '@',
+        onRemove: '&'
+      },
+      // controller: 'ShoppingListDirectiveController as list',
+      controller: ShoppingListDirectiveController,
+      controllerAs: 'list',
+      bindToController: true,
+      link: ShoppingListDirectiveLink,
+      transclude: true
     };
-    $scope.upDigest = function () {
-      setTimeout(function () {
-        $scope.counter++;
-        $scope.$digest();
-        console.log("with $digest (AngularJS wont see possible exceptions inside 'setTimeout')");
-      }, 800)
-    };
-    $scope.upApply = function () {
-      setTimeout(function () {
-        $scope.$apply(function () {
-          $scope.counter++;
-          console.log("with $apply (AngularJS catches possible exceptions inside 'setTimeout')");
-        });
-      }, 800)
-    };
-    $scope.upTimeout = function () {
-      $timeout(function () {
-        $scope.counter++;
-        console.log("$timeout is AngularJS native version for 'setTimeout'");
-      }, 800);
-    };
+    return ddo;
   }
 
-  FilterController.$inject = ['$scope', '$filter', 'altercaseFilter'];
-  function FilterController ($scope, $filter, altercaseFilter) {
-    $scope.product = "Aubergine";
-    $scope.price = .55;
-    $scope.name = "Fabricio";
+  function ShoppingListDirectiveLink(scope, element, attrs, controller) {
+    console.log("Link scope is: ", scope);
+    console.log("Controller instance is: ", controller);
+    console.log("Element is: ", element);
 
-    $scope.showPrice = function() {
-      return $filter('currency')($scope.price,'€');
-    };
-    $scope.capitalize = function() {
-      $scope.product = $filter('uppercase')($scope.product);
-    };
-    $scope.lowercase = function() {
-      $scope.product = $filter('lowercase')($scope.product);
-    };
-    $scope.altercase = function() {
-      $scope.product = altercaseFilter($scope.product);
-    };
-    // $scope.replacefield = function() {
-    //   $scope.product = replaceFilter($scope.product, $scope.name, $scope.product);
-    // }
+    console.log("Detect = "+controller.detect);
+
+    scope.$watch('list.detectionInList("'+controller.detect+'")', function (newV, oldV) {
+      console.log("Old value: ", oldV);
+      console.log("New value: ", newV);
+
+      if (newV === true) {
+        displayDetectionWarning();
+      } else {
+        removeDetectionWarning();
+      }
+
+    });
+
+    function displayDetectionWarning() {
+      // Using AngularJS jqLite
+      // var warningElem = element.find("div");
+      // console.log(warningElem);
+      // warningElem.css('display', 'block');
+
+      // If jQuery included before AngularJS
+      var warningElem = element.find("div.error");
+      warningElem.slideDown(500);
+    }
+
+    function removeDetectionWarning() {
+      // Using AngularJS jqLite
+      // var warningElem = element.find("div");
+      // warningElem.css('display', 'none');
+
+      // If jQuery included before AngularJS
+      var warningElem = element.find("div.error");
+      warningElem.slideUp(500);
+    }
   }
 
-  function AlternateCaseFilter() {
-    return function (input) {
-      input = input || "";
-      var output = "";
-      for(var i=0; i<input.length; i++) {
-        if ( i%2 == 0) {
-          output += input.substring(i, i + 1).toUpperCase();
-        } else {
-          output += input.substring(i, i + 1).toLowerCase();
+  function ShoppingListDirectiveController() {
+    var list = this;
+
+    list.detectionInList = function(detection) {
+      for (var i = 0 ; i < list.items.length ; i++) {
+        var name = list.items[i].name;
+        if (name.toLowerCase().indexOf(detection) !== -1) {
+          return true;
         }
       }
-      return output;
-    };
-  }
-
-  // function ReplaceFilter() {
-  //   return function (input, target, replacement) {
-  //     input = input !! "";
-  //     input = input.replace(target, replacement);
-  //     return input;
-  //   };
-  // }
-
-  BindingController.$inject = ['$scope'];
-  function BindingController($scope) {
-    $scope.firstName = "";
-    $scope.lastname = "";
-
-    // Just return fullName string:
-    $scope.getFullName = function () {
-      return $scope.firstName + " " + $scope.lastname;
-    };
-    // Set fullName 1-time only:
-    $scope.setFullName = function () {
-      $scope.fullName = $scope.firstName + " " + "Braga";
+      return false;
     };
   }
 
@@ -114,32 +95,41 @@
   ShoppingListController.$inject = ['ShoppingListService'];
   function ShoppingListController(ShoppingListService) {
     var list = this;
-    // var maxItems = 5;
-
-    // Using factory to create new shopping list service
-    // var shoppingList = ShoppingListFactory(maxItems);
-
     // list.filter = "";
 
     list.items = ShoppingListService.getItems();
+    var originalTitle = "Shopping List";
+
+    list.title = originalTitle;
+    list.total = " (" + list.items.length + " items)";
+
+    list.detect = "cookie";
+    list.warning = "DETECTED!";
 
     list.itemName = "";
     list.itemQtty = "";
 
     list.add = function () {
-      try {
-        ShoppingListService.addItem(list.itemName, list.itemQtty);
-      } catch (error) {
-        list.errorMessage = error.message;
+      var warn = ShoppingListService.addItem(list.itemName, list.itemQtty);
+
+      if ( !warn ) {
+        list.warning = list.itemName + " ("+list.itemQtty+") added.";
+        list.total = " (" + list.items.length + " items)";
+      } else {
+        list.warning = warn; 
       }
     };
 
     list.removeItem = function (itemIndex) {
-      ShoppingListService.removeItem(itemIndex);
+      var remItem = ShoppingListService.removeItem(itemIndex);
+
+      list.warning = remItem[0].name + " removed (" + remItem[0].qtty+")";
+      list.total = " (" + list.items.length + " items)";
     };
 
   }
 
+  // If not specified, maxItems assumed unlimited
   function ShoppingListService(maxItems) {
     var service = this;
 
@@ -155,6 +145,9 @@
     ];
 
     service.addItem = function (itemName, itemQtty) {
+      if ( !itemName || !itemQtty ) {
+        return "Provide name and quantity.";
+      }
       if ( (maxItems === undefined) ||
            (maxItems !== undefined) && (items.length < maxItems)) {
         var item = {
@@ -163,16 +156,12 @@
         };
         items.push(item);
       } else {
-        throw new Error("Max items (" + maxItems +") reached.");
+        return "Max items (" + maxItems +") reached.";
       }
-      // if ( !itemName || !itemQtty ) {
-      //   console.log("Item's name and quantity must be provided.");
-      //   return;
-      // }
     };
 
     service.removeItem = function (itemIndex) {
-      items.splice(itemIndex, 1);
+      return items.splice(itemIndex, 1);
     }
 
     service.getItems = function () {

@@ -1,0 +1,13 @@
+<div id="result">
+  <div id="items">
+    <ul>
+      <li ng-repeat="item in found">
+        <button class="remove" ng-click="onRemove({index: $index});">Don't want this one!</button>
+        <span class="itemName">
+          {{ item.name }}
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div class="message" ng-transclude></div>
+</div>
