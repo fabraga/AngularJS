@@ -55,7 +55,7 @@
       var matchedMenu = this;
       items = [];
 
-      var promise = $http({method: "GET", url: ("http://davids-restaurant.herokuapp.com/menu_items.json")});
+      var promise = $http({method: "GET", url: ("https://davids-restaurant.herokuapp.com/menu_items.json")});
 
       promise.then(function (response) {
         // console.log(response.data.menu_items);
