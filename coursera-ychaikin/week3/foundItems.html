@@ -2,9 +2,12 @@
   <div id="items">
     <ul>
       <li ng-repeat="item in found">
-        <button class="remove" ng-click="onRemove({index: $index});">Don't want this one!</button>
-        <span class="itemName">
-          {{ item.name }}
+        <button class="remove" ng-click="onRemove({index: $index});">
+          <span class="glyphicon glyphicon-remove red-x">
+          </span> Don't want this one! <span class="glyphicon glyphicon-hand-right pointing-right"></span>
+        </button>
+        <span class="item">
+          <span class="itemName">{{ item.name }}</span> - {{ item.short_name }} - {{ item.description }}
         </span>
       </li>
     </ul>

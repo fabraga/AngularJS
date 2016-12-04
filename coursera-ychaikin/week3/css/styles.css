@@ -62,18 +62,29 @@ ul {
   padding: 5px 10px;
 }
 .remove {
+  padding: 5px 5px 6px 5px;
+  float: left;
   border: none;
-  background-color: #eee;
+  background-color: #fed;
   border-radius: 4px;
-  color: #963;
-  margin: 2px;
+  color: #f64;
+  font-weight: bold;
+  margin: 0 5px 2px -5px;
   box-shadow: inset 0 0 20px 1px rgba(0, 0, 0, 0.15);
 }
 .remove:hover {
   color: red;
-  background-color: #eee;
+  background-color: #fff;
   text-shadow: 0 0 5px #fff;
   box-shadow: 0 0 20px 1px rgba(0, 50, 255, 0.25);
+}
+.red-x {
+  color: #f33;
+}
+.pointing-right {
+  color: #539ad7;
+  text-shadow: 1px 1px 1px #000;
+  text-shadow: 2px 2px 1px #fff;
 }
 #result {
   position: relative;
@@ -92,10 +103,27 @@ ul {
   padding-top: 5px;
   overflow-y: auto;
 }
+.item {
+  display: inline-block;
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px 8px;
+  border: solid 1px;
+  border-style: inset;
+  border-radius: 4px;
+  background-color: #73baf7;
+  color: #fff;
+  text-shadow: 1px 1px 4px #000;
+  box-shadow: inset 0 0 5px 7px rgba(0, 0, 0, 0.15);
+}
+.item:hover {
+  text-overflow: inherit;
+  overflow: auto;
+}
 .itemName {
-  color: #468;
   font-weight: bold;
-  text-shadow: 0 0 2px #fff, 1px 1px 18px #883;
 }
 .message {
   position: absolute;
@@ -105,5 +133,4 @@ ul {
   color: #d77;
   font-size: 20px;
   font-weight: bold;
-  text-alin: center;
 }
