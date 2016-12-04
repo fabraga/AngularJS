@@ -7,7 +7,9 @@
           </span> Don't want this one! <span class="glyphicon glyphicon-hand-right pointing-right"></span>
         </button>
         <span class="item">
-          <span class="itemName">{{ item.name }}</span> - {{ item.short_name }} - {{ item.description }}
+          <span class="itemName">{{ item.name }}</span>
+          <span> ({{ item.short_name }}): </span>
+          <span class="itemDescription">{{ item.description }}</span>
         </span>
       </li>
     </ul>
