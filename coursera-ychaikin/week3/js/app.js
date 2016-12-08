@@ -8,6 +8,7 @@
 
   function FoundItemsDirective() {
     var ddo = {
+      restrict: 'E',
       templateUrl: 'foundItems.html',
       transclude: true,
       scope: {

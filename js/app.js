@@ -18,6 +18,7 @@
   // Shopping List directive's Factory Function
   function ShoppingListDirective() {
     var ddo = {
+      restrict: 'E',
       templateUrl: 'shoppingList.html',
       scope: {
         items: '<',
@@ -116,7 +117,7 @@
         list.warning = list.itemName + " ("+list.itemQtty+") added.";
         list.total = " (" + list.items.length + " items)";
       } else {
-        list.warning = warn; 
+        list.warning = warn;
       }
     };
 
