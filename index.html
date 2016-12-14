@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="FABRAGA">
+<html ng-app="ShoppingList">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <!-- Beginning of Controllers -->
+    <!-- Beginning of All Controllers -->
     <div class="container controllers">
       <h3>Learning / Practicing...</h3>
       <div>
@@ -34,7 +34,7 @@
       </div>
 
       <!-- ShoppingList Controller -->
-        <div class="controller" id="list" ng-controller="ShoppingListController as list">
+      <div id="list" class="controller" ng-controller="ShoppingListController as list">
           <div class="shoppingListHeader">
             <input class="input addItemName" type="text" ng-model="list.itemName"
                    placeholder="item name">
@@ -53,27 +53,27 @@
 
             <span class="warning">{{list.warning}}</span>
           </shopping-list>
+      </div> <!-- End of Shopping List Controllers -->
+    </div><!-- End of All Controllers -->
 
-          <shopping-list id="list2"
-              items="list.items"
-              title="Shopping List #2"
-              total={{list.total}}
-              detect="{{list.detect}}"
-              on-remove="list.removeItem(index)">
+    <loading-spinner></loading-spinner>
 
-              <div>
-                <!-- <div class="deepWarning">OH, THE HORROR!</div> -->
-                <div>{{list.warning}}</div>
-              </div>
-          </shopping-list>
+    <!-- Libraries -->
+    <script src="lib/jquery-3.1.1.min.js"></script>
+    <script src="lib/angular.min.js"></script>
 
-        </div>
-      <!-- End of Shopping List Controllers -->
-    </div>
-    <!-- End of All Controllers -->
+    <!-- Modules -->
+    <script src="src/spinner/spinner.module.js"></script>
+    <script src="src/shoppinglist/shoppinglist.module.js"></script>
 
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/app.js"></script>
+    <!-- 'ShoppingList' module artifacts -->
+    <script src="src/shoppinglist/shoppinglist.component.js"></script>
+    <script src="src/shoppinglist/shoppinglist.controller.js"></script>
+    <script src="src/shoppinglist/shoppinglist.service.js"></script>
+    <!-- <script src="src/shoppinglist/shoppinglist.service.provider.js"></script> -->
+    <script src="src/shoppinglist/fitnessfilter.service.js"></script>
+
+    <!-- 'Spinner' module artifacts -->
+    <script src="src/spinner/loadingspinner.component.js"></script>
   </body>
 </html>
