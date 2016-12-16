@@ -67,7 +67,7 @@
         // console.log(response.data.menu_items);
         for ( var i = 0 ; i < response.data.menu_items.length ; i++ ) {
           // var itemDesc = response.data.menu_items[i].description.toLowerCase();
-          if ( response.data.menu_items[i].description.toLowerCase().indexOf(searchTerm) !== -1 ) {
+          if ( ( response.data.menu_items[i].description.toLowerCase().indexOf(searchTerm) !== -1 ) || ( response.data.menu_items[i].name.toLowerCase().indexOf() !== -1 ) ) {
           // if ( itemDesc.includes(serachTerm.trim().toLowerCase()) ) {
             items.push( response.data.menu_items[i] );
           }
