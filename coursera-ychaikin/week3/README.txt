@@ -5,4 +5,4 @@ Coursera "Single Page Web Applications with AngularJS" (SPA AngularJS)
 Teacher: Yaakov Chaikin (user: ychaikin)
 
 Assignment description:
-https://github.com/jhu-ep-coursera/fullstack-course5/blob/master/assignments/assignment2/Assignment-3.md
+https://github.com/jhu-ep-coursera/fullstack-course5/blob/master/assignments/assignment3/Assignment-3.md
