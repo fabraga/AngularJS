@@ -44,10 +44,8 @@
     };
 
     menu.removeItem = function (itemIndex) {
-    // menu.onRemove = function (itemIndex) {
       var removedItem = MenuSearchService.removeItem(itemIndex);
       menu.message = (menu.found.length > 0 ? "" : "Nothing found.");
-      }
     };
   }
 
