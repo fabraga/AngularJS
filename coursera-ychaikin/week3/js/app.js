@@ -29,6 +29,7 @@
     // menu.getMessage = function() {
     //   return (menu.found.length > 0 ? "" : "Nothing found.");
     // }
+    menu.message = "";
 
     menu.narrowItDown = function () {
       if ( menu.searchTerm.trim() ) {
