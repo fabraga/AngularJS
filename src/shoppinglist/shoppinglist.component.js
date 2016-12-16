@@ -2,17 +2,17 @@
   'use strict';
 
   angular.module('ShoppingList')
-  .component('shoppingList', {
-    templateUrl: 'src/shoppinglist/shoppinglist.template.html',
-    controller: ShoppingListComponentController,
+  .component('shoppingListItems', {
+    templateUrl: 'src/shoppinglist/templates/items.template.html',
+    // controller: ShoppingListComponentController,
     bindings: {
       items: '<',
-      title: '@',
+      name: '@',
       total: '@',
       detect: '@',
       onRemove: '&'
     }
-  });
+  })
 
   ShoppingListComponentController.$inject = ['$rootScope', '$element', '$q', 'FitnessFilterService']
   function ShoppingListComponentController($rootScope, $element, $q, FitnessFilterService) {
@@ -39,11 +39,11 @@
 
         $q.all(promises).then(function (result) {
           var warningElem = $element.find('div.error');
-          warningElem.slideUp(900); // Remove warning
+          warningElem.slideUp(800); // Remove warning
         })
         .catch(function (result) {
           var warningElem = $element.find('div.error');
-          warningElem.slideDown(900); // Show warning
+          warningElem.slideDown(800); // Show warning
         })
         .finally(function () {
           $rootScope.$broadcast('shoppinglist:processing', {on: false});

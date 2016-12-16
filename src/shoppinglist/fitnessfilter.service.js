@@ -25,7 +25,7 @@
           result.message = "Stay away from cookies!";
           deferred.reject(result);
         }
-      }, 3000);
+      }, 1000);
 
       return deferred.promise;
     };
@@ -45,7 +45,7 @@
           result.message = "That's too much!";
           deferred.reject(result);
         }
-      }, 1000);
+      }, 500);
 
       return deferred.promise;
     };

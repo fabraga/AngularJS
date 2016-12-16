@@ -33,43 +33,31 @@
         Watchers: {{ $$watchersCount }}
       </div>
 
-      <!-- ShoppingList Controller -->
-      <div id="list" class="controller" ng-controller="ShoppingListController as list">
-          <div class="shoppingListHeader">
-            <input class="input addItemName" type="text" ng-model="list.itemName"
-                   placeholder="item name">
-            <input class="input addItemQtty" type="text" ng-model="list.itemQtty"
-                   placeholder="qtty">
-            <button class="addItem" ng-click="list.add();">Add</button>
-          </div>
-
-          <!-- SHOPPING LISTS -->
-          <shopping-list id="list1"
-              items="list.items"
-              title="{{list.title}}"
-              total={{list.total}}
-              detect="{{list.detect}}"
-              on-remove="list.removeItem(index)">
-
-            <span class="warning">{{list.warning}}</span>
-          </shopping-list>
-      </div> <!-- End of Shopping List Controllers -->
+      <div class="container">
+        <ui-view></ui-view>
+      </div>
     </div><!-- End of All Controllers -->
 
     <loading-spinner></loading-spinner>
 
+
     <!-- Libraries -->
     <script src="lib/jquery-3.1.1.min.js"></script>
     <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
 
     <!-- Modules -->
     <script src="src/spinner/spinner.module.js"></script>
     <script src="src/shoppinglist/shoppinglist.module.js"></script>
 
+    <!-- Routes -->
+    <script src="src/routes.js"></script>
+
     <!-- 'ShoppingList' module artifacts -->
     <script src="src/shoppinglist/shoppinglist.component.js"></script>
     <script src="src/shoppinglist/shoppinglist.controller.js"></script>
     <script src="src/shoppinglist/shoppinglist.service.js"></script>
+    <script src="src/shoppinglist/item.controller.js"></script>
     <!-- <script src="src/shoppinglist/shoppinglist.service.provider.js"></script> -->
     <script src="src/shoppinglist/fitnessfilter.service.js"></script>
 

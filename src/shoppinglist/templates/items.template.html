@@ -1,5 +1,13 @@
+<!-- Shopping List Header -->
+<div class="shoppingListHeader">
+  <input class="input addItemName" type="text" ng-model="$ctrl.itemName" placeholder="item name">
+  <input class="input addItemQtty" type="text" ng-model="$ctrl.itemQtty" placeholder="qtty">
+  <button class="addItem" ng-click="$ctrl.add();">Add</button>
+</div>
+
+<!-- SHOPPING LIST ITEMS -->
 <div class="shoppingList">
-  <h5><b>{{ $ctrl.title }}</b> {{ $ctrl.total }}</h5>
+  <h5><b>{{ $ctrl.name }}</b> {{ $ctrl.total }}</h5>
   <div class="shoppingListItems">
     <ol class="listOrder">
       <li ng-repeat="item in $ctrl.items">
@@ -7,16 +15,21 @@
         <!-- {{getIndex($index+1)}}. -->
         <button class="removeItem" ng-click="$ctrl.remove($index);">x</button>
         <input class="qtty" ng-model="item.qtty">
-        <span class="itemName">
-          {{ item.name }}
-        </span>
+        <a ui-sref="shoppingList.itemDetail({itemId: $index})">
+          <span class="itemName" data-title="{{ item.desc }}">
+            {{ item.name }}
+          </span>
+        </a>
       </li>
     </ol>
   </div>
   <!-- <div class="error" ng-transclude></div> -->
   <div class="error">
-    WARNING!
+    COOKIES DETECTED!
   </div>
 </div>
+
+<ui-view></ui-view>
+
 <!-- <div class="error" ng-if="list.cookiesInList()">COOKIES DETECTED!!!</div> -->
 <!-- <div class="error" ng-if="list.cookiesInList()">{{ list.errorMessage }}</div> -->

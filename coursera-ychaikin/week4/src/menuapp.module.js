@@ -1,10 +1,10 @@
 (function () {
   'use strict';
 
-  angular.module('ShoppingList', ['ui.router', 'Spinner']);
+  angular.module('MenuApp', ['ui.router', 'data', 'Spinner']);
 
 
-  angular.module('ShoppingList')
+  angular.module('MenuApp')
   .config(function () {
     // ShoppingListServiceProvider.defaults.maxItems = 10;
   })

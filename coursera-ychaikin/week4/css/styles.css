@@ -1,0 +1,106 @@
+body {
+  font-size: 16px;
+  text-align: center;
+}
+
+header {
+  position: relative;
+  background-color: #eee;
+  padding: 20px;
+}
+
+h1 {
+  margin: 30px auto;
+}
+
+.loading-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+div.tabs > a, div.tabs > button {
+  font-size: 1.2em;
+}
+
+div.tabs {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  line-height: 40px;
+  background-color: #dfd;
+  border-radius: 8px;
+  box-shadow: 0 0 50px #aca;
+  vertical-align: middle;
+}
+
+.activeTab {
+  font-weight: bold;
+}
+
+.reference {
+  font-size: 1.6em;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+a {
+  vertical-align: middle;
+}
+a:hover, a:visited {
+  text-decoration: none;
+}
+a:hover {
+  cursor: pointer;
+}
+
+a[ui-sref] {
+  background-color: #fd9;
+  border: solid 1px #000;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+a[ui-sref]:hover {
+  background-color: #fea;
+  box-shadow: 2px 2px 8px #333;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.categName {
+  display: inline-block;
+  width: 200px;
+  color: #000;
+  font-size: 14px;
+  background-color: #fba;
+  padding: 1px 5px;
+  border-radius: 2px;
+  border-style: inset;
+  border-width: 1px;
+}
+.categName:hover {
+  background-color: #fcb;
+  color: #000;
+  border-style: outset;
+  box-shadow: 0 0 10px #740;
+}
+.categName[title]:hover:after, .categName[data-title]:hover:after {
+  content: attr(data-title);
+  position: absolute;
+  margin-left: 15px;
+  margin-top: -15px;
+  border-radius: 8px;
+  border-style: outset;
+  border-width: 1px;
+  text-shadow: 1px 1px 1px #fff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 3px 5px 1px 5px;
+  width: fit-content;
+  font-size: 0.9em;
+  background-color: #fda;
+  color: #000;
+  vertical-align: middle;
+  opacity: 0.75;
+}
