@@ -35,17 +35,17 @@
         // angular.element('#loader').css('display', 'block');
         menu.found = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
         // angular.element('#loader').css('display', 'none');
-        menu.getMessage = "";
+        menu.message = "";
       } else {
         menu.found = [];
-        menu.getMessage = "Nothing found.";
+        menu.message = "Nothing found.";
       }
     };
 
     menu.removeItem = function (itemIndex) {
     // menu.onRemove = function (itemIndex) {
       var removedItem = MenuSearchService.removeItem(itemIndex);
-      menu.getMessage = (menu.found.length > 0 ? "" : "Nothing found.");
+      menu.message = (menu.found.length > 0 ? "" : "Nothing found.");
       }
     };
   }
