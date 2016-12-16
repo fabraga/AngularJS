@@ -63,8 +63,7 @@
       promise.then(function (response) {
         // console.log(response.data.menu_items);
         for ( var i = 0 ; i < response.data.menu_items.length ; i++ ) {
-          var itemDesc = response.data.menu_items[i].description.toLowerCase();
-          if ( itemDesc.includes(serachTerm.trim().toLowerCase()) ) {
+          if ( response.data.menu_items[i].description.toLowerCase().includes(serachTerm.trim().toLowerCase()) ) {
             items.push( response.data.menu_items[i] );
           }
         }
