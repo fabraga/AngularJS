@@ -26,24 +26,27 @@
     menu.searchTerm = "";
     menu.found = [];
 
-    menu.getMessage = function() {
-      return (menu.found.length > 0 ? "" : "Nothing found.");
-    }
+    // menu.getMessage = function() {
+    //   return (menu.found.length > 0 ? "" : "Nothing found.");
+    // }
 
     menu.narrowItDown = function () {
       if ( menu.searchTerm.trim() ) {
         // angular.element('#loader').css('display', 'block');
         menu.found = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
         // angular.element('#loader').css('display', 'none');
+        menu.getMessage = "";
       } else {
         menu.found = [];
-        menu.getMessage();
+        menu.getMessage = "Nothing found.";
       }
     };
 
     menu.removeItem = function (itemIndex) {
     // menu.onRemove = function (itemIndex) {
       var removedItem = MenuSearchService.removeItem(itemIndex);
+      menu.getMessage = (menu.found.length > 0 ? "" : "Nothing found.");
+      }
     };
   }
 
