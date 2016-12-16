@@ -12,8 +12,6 @@
 
     shoppingList.items = items;
 
-    // shoppingList.filter = "";
-
     // shoppingList.$onInit = function () {
     //   ShoppingListService.getItems().then(function (result) {
     //     shoppingList.items = result;

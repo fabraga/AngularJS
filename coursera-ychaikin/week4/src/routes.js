@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('ShoppingList')
+  angular.module('MenuApp')
   .config(RoutesConfig);
 
   RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
@@ -21,7 +21,7 @@
 
       // Categories page
       .state('categories', {
-        url: '/categs',
+        url: '/categories',
         templateUrl: 'src/templates/categories.template.html',
         controller: 'MenuController as menu',
         resolve: {
@@ -29,17 +29,17 @@
             return MenuDataService.getAllCategories();
           }]
         }
-      })
-
-      // Item Detail page
-      .state('categories.items', {
-        // url: '/item-detail/{itemId}',
-        templateUrl: 'src/templates/items.template.html',
-        controller: 'ItemController as itemDetail',
-        params: {
-          itemId: null
-        }
       });
+      //
+      // // Item Detail page
+      // .state('categories.items', {
+      //   // url: '/items/{itemId}',
+      //   templateUrl: 'src/templates/items.template.html',
+      //   controller: 'ItemController as item',
+      //   params: {
+      //     itemId: null
+      //   }
+      // });
   }
 
 

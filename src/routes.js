@@ -31,12 +31,6 @@
         }
       })
 
-      // .state('shoppingList.listItems', {
-      //   url: '/list-items',
-      //   templateUrl: 'src/shoppinglist/templates/list-items.template.html',
-      //   controller: 'ShoppingListController as list',
-      // })
-
       // Item Detail page
       .state('shoppingList.itemDetail', {
         // url: '/item-detail/{itemId}',

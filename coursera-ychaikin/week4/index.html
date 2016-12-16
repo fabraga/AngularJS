@@ -10,17 +10,15 @@
     <header>
       <h1>Welcome to our restaurant!</h1>
 
-      <div class="tabs">
+      <!-- <div class="tabs">
         <a ui-sref="home" ui-sref-active="activeTab">
           <span class="glyphicon glyphicon-home"></span> Home
         </a>
         &emsp;<span class="glyphicon glyphicon-menu-left"></span>&emsp;
-        <!-- &emsp;<span class="reference">&lt;</span>&emsp; -->
         <a ui-sref="categories" ui-sref-active="activeTab">
           <span class="glyphicon glyphicon-menu-hamburger"></span> Categories
         </a>
-        <!-- <button ui-sref="tab2">Tab 2</button> -->
-      </div>
+      </div> -->
 
       <loading-spinner></loading-spinner>
 
@@ -28,7 +26,6 @@
 
     <div class="main">
       <ui-view></ui-view>
-
     </div>
 
     <!-- Libraries -->
@@ -37,19 +34,20 @@
 
     <!-- Modules -->
     <script src="src/spinner/spinner.module.js"></script>
-    <script src="src/data.module.js"></script>
-    <script src="src/menuapp.module.js"></script>
+    <script src="src/data/data.module.js"></script>
+    <script src="src/menu/menuapp.module.js"></script>
 
     <!-- Routes -->
     <script src="src/routes.js"></script>
 
+    <!-- 'Data' module artifacts -->
+    <script src="src/data/menudata.service.js"></script>
+
     <!-- 'Menu' module artifacts -->
-    <script src="src/menu/menudata.service.js"></script>
     <script src="src/menu/categories.component.js"></script>
     <script src="src/menu/items.component.js"></script>
     <script src="src/menu/menu.controller.js"></script>
-    <script src="src/menu/items.controller.js"></script>
-
+    <!-- <script src="src/menu/items.controller.js"></script> -->
 
   </body>
 </html>

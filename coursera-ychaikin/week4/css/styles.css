@@ -9,6 +9,30 @@ header {
   padding: 20px;
 }
 
+.main {
+  position: relative;
+  background-color: #bdf;
+  padding: 20px;
+}
+
+a {
+  vertical-align: middle;
+}
+a:hover, a:visited {
+  text-decoration: none;
+}
+
+a[ui-sref] {
+  background-color: #fd9;
+  border: solid 1px #000;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+a[ui-sref]:hover {
+  background-color: #fea;
+  box-shadow: 2px 2px 8px #333;
+}
+
 h1 {
   margin: 30px auto;
 }
@@ -42,27 +66,6 @@ div.tabs {
   font-size: 1.6em;
   font-weight: bold;
   vertical-align: middle;
-}
-
-a {
-  vertical-align: middle;
-}
-a:hover, a:visited {
-  text-decoration: none;
-}
-a:hover {
-  cursor: pointer;
-}
-
-a[ui-sref] {
-  background-color: #fd9;
-  border: solid 1px #000;
-  border-radius: 4px;
-  padding: 5px 10px;
-}
-a[ui-sref]:hover {
-  background-color: #fea;
-  box-shadow: 2px 2px 8px #333;
 }
 
 ul {
