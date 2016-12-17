@@ -23,9 +23,9 @@
       .state('categories', {
         url: '/categories',
         templateUrl: 'src/templates/categories.template.html',
-        controller: 'MenuController as menu',
+        controller: 'CategoriesController as menu',
         resolve: {
-          categs: ['MenuDataService', function (MenuDataService) {
+          categories: ['MenuDataService', function (MenuDataService) {
             return MenuDataService.getAllCategories();
           }]
         }
