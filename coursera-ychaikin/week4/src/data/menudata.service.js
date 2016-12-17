@@ -4,8 +4,10 @@
   angular.module('data')
   .service('MenuDataService', MenuDataService);
 
-  MenuDataService.$inject = ['$http', '$q']
-  function MenuDataService(http, $q) {
+  // MenuDataService.$inject = ['$http', '$q']
+  // function MenuDataService(http, $q) {
+  MenuDataService.$inject = ['$http']
+  function MenuDataService(http) {
     var service = this;
 
     // Lists of categories and items
@@ -15,7 +17,12 @@
     service.getAllCategories = function () {
       categs = [];
 
-      var promise = $http({method: "GET", url: ("https://davids-restaurant.herokuapp.com/categories.json")});
+      console.log("Inside 'MenuDataService.getAllCategories()'");
+
+      var promise = $http( {method: "GET", url: ("https://davids-restaurant.herokuapp.com/categories.json")} );
+
+      console.log("after '$http' call");
+      console.log("promise: "+promise);
 
       promise.then(function (response) {
         categs = response.data;
@@ -33,6 +40,8 @@
 
     service.getItemsForCategory = function (categoryShortName) {
       items = [];
+
+      console.log("Inside 'MenuDataService.getItemsForCategory()'");
 
       var promise = $http({method: "GET", url: ("https://davids-restaurant.herokuapp.com/menu_items.json?category="+categoryShortName)});
 

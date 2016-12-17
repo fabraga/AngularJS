@@ -29,17 +29,22 @@
             return MenuDataService.getAllCategories();
           }]
         }
+      })
+
+      // Items page
+      .state('items', {
+        // url: '/items/{categId}',
+        templateUrl: 'src/templates/items.template.html',
+        controller: 'ItemsController as itemList',
+        resolve: {
+          items: ['MenuDataService', function (MenuDataService) {
+            return MenuDataService.getItemsForCategory(categId);
+          }]
+        },
+        params: {
+          categId: null
+        }
       });
-      //
-      // // Item Detail page
-      // .state('categories.items', {
-      //   // url: '/items/{itemId}',
-      //   templateUrl: 'src/templates/items.template.html',
-      //   controller: 'ItemController as item',
-      //   params: {
-      //     itemId: null
-      //   }
-      // });
   }
 
 

@@ -1,10 +1,8 @@
-<span>LIST OF CATEGORIES</span>
-
 <!-- LIST OF CATEGORIES -->
 <div class="categoryList">
     <ul class="listOrder">
       <li ng-repeat="categ in $ctrl.categs">
-        <a ui-sref="categories.items({categId: $index})">
+        <a ui-sref="items({categId: $index})">
           <span class="categName" data-title="{{ categ.id }}"+" - "+"'{{ categ.short_name }}'">
             {{ categ.name }}
           </span>
@@ -13,5 +11,5 @@
     </ul>
   </div>
 </div>
-
-<ui-view></ui-view>
+<!--
+<ui-view></ui-view> -->

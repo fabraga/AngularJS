@@ -8,10 +8,6 @@
   function MenuController(categs) {
     var menu = this;
 
-    menu.$onInit = function () {
-      console.log("Inside MenuController!");
-    };
-
     menu.categs = categs;
   }
 
