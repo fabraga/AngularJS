@@ -5,59 +5,81 @@ body {
 
 header {
   position: relative;
-  background-color: #eee;
+  background-color: #cdf;
   padding: 20px;
 }
 
 .menu {
   position: relative;
   display: inline-block;
-  background-color: #bdf;
+  background-color: #9bd;
   font-size: 1.2em;
   border-style: outset;
-  padding: 20px 10px;
+  border-radius: 4px;
+  padding: 20px 20px;
   box-shadow: 0 0 50px #999;
 }
 
 .main {
   position: relative;
-  background-color: #ea9;
+  background-color: #7ac;
   font-size: .9em;
   margin: 20px 0 10px 0;
   border-style: inset;
-  padding: 10px;
+  border-radius: 4px;
+  padding: 20px;
   box-shadow: inset 0 0 20px #888;
 }
-.main > span {
-  margin: 5px 10px;
-  border: solid 1px #700;
+.section-title {
+  vertical-align: middle;
+  margin: 20px;
   border-radius: 8px;
-  padding: 5px 10px;
+  border-width: 0;
+  padding: 10px 20px;
+  box-shadow: inset 0 0 10px #479, 0 0 20px #9ce;
+  cursor: default;
 }
 
 #categories {
   display: block;
-  background-color: #dc7;
-  margin: 10px 0 0 0;
-  padding: 10px;
-  opacity: 0.9;
+  margin: 20px 0 0 0;
+  padding: 20px;
+  box-shadow: inset 0 0 50px #333, 0 0 10px #000;
+}
+
+.category {
+  display: inline-block;
+  margin: 3px;
+  box-shadow: 5px 5px 10px #555;
+}
+.category:hover {
+  color: #222;
+  cursor: pointer;
+}
+
+#items {
+  display: block;
+  margin: 20px 0 0 0;
+  padding: 20px;
+  box-shadow: inset 0 0 50px #333, 0 0 10px #000;
 }
 
 a {
   vertical-align: middle;
+  color: #024;
 }
 a:hover, a:visited {
   text-decoration: none;
 }
 
-a[ui-sref] {
-  background-color: #fd9;
+*[ui-sref] {
+  background-color: #ec8;
   border: solid 1px #000;
   border-radius: 4px;
   padding: 5px 10px;
 }
-a[ui-sref]:hover {
-  background-color: #fea;
+*[ui-sref]:hover {
+  background-color: #feb;
   box-shadow: 2px 2px 8px #333;
 }
 
@@ -71,19 +93,6 @@ h1 {
   left: 50%;
 }
 
-div.tabs > a, div.tabs > button {
-  font-size: 1.2em;
-}
-div.tabs {
-  display: inline-block;
-  padding: 5px 10px;
-  margin-bottom: 10px;
-  line-height: 40px;
-  background-color: #dfd;
-  border-radius: 8px;
-  box-shadow: 0 0 50px #aca;
-  vertical-align: middle;
-}
 .activeTab {
   font-weight: bold;
 }
@@ -98,28 +107,11 @@ ul {
   list-style-type: none;
 }
 
-.categName {
-  display: inline-block;
-  width: 200px;
-  color: #000;
-  font-size: 14px;
-  background-color: #fba;
-  padding: 1px 5px;
-  border-radius: 2px;
-  border-style: inset;
-  border-width: 1px;
-}
-.categName:hover {
-  background-color: #fcb;
-  color: #000;
-  border-style: outset;
-  box-shadow: 0 0 10px #740;
-}
-.categName[title]:hover:after, .categName[data-title]:hover:after {
+*[title]:hover:after, *[data-title]:hover:after {
   content: attr(data-title);
   position: absolute;
-  margin-left: 15px;
-  margin-top: -15px;
+  margin-left: 20px;
+  margin-top: -40px;
   border-radius: 8px;
   border-style: outset;
   border-width: 1px;
@@ -127,9 +119,9 @@ ul {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   padding: 3px 5px 1px 5px;
   width: fit-content;
-  font-size: 0.9em;
+  font-size: 0.7em;
   background-color: #fda;
   color: #000;
   vertical-align: middle;
-  opacity: 0.75;
+  opacity: 0.9;
 }

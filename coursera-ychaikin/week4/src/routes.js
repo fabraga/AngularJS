@@ -25,19 +25,19 @@
         templateUrl: 'src/templates/categories.template.html',
         controller: 'CategoriesController as menu',
         resolve: {
-          categories: ['MenuDataService', function (MenuDataService) {
+          allCategories: ['MenuDataService', function (MenuDataService) {
             return MenuDataService.getAllCategories();
           }]
         }
       })
 
       // Items page
-      .state('items', {
+      .state('categories.items', {
         // url: '/items/{categId}',
         templateUrl: 'src/templates/items.template.html',
-        controller: 'ItemsController as itemList',
+        controller: 'ItemsController as category',
         resolve: {
-          items: ['MenuDataService', function (MenuDataService) {
+          categoryItems: ['MenuDataService', function (MenuDataService) {
             return MenuDataService.getItemsForCategory(categId);
           }]
         },

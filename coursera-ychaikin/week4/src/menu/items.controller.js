@@ -4,15 +4,16 @@
   angular.module('MenuApp')
   .controller('ItemsController', ItemsController);
 
-  ItemsController.$inject = ['items'];
-  function ItemsController(items) {
-    var itemList = this;
+  ItemsController.$inject = ['categoryItems'];
+  function ItemsController(categoryItems) {
+    var category = this;
 
-    // itemList.$onInit = function () {
-    //   console.log("Inside ItemsController.$onInit");
-    // };
+    menu.$onInit = function () {
+      console.log("inside ItemsController");
+      console.log(categoryItems);
+    }
 
-    itemList.items = items;
+    category.items = categoryItems;
   }
 
 })();

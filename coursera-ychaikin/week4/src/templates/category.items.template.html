@@ -1,9 +1,16 @@
 <!-- LIST OF CATEGORIES -->
-<span>Category List</span>
+<ul>
+  <li class="category"
+      ng-repeat="categ in $ctrl.categories.data"
+      data-title="{{ categ.id }} - {{ categ.short_name }}"
+      ui-sref="categories.items({categId: categ.short_name})">
+    {{ categ.name }}
+  </li>
+</ul>
 
-{{ $ctrl.categories.length }}
+<ui-view></ui-view>
 
-<div class="categoryList">
+<!-- <div class="categoryList">
     <ul class="listOrder">
       <li ng-repeat="categ in $ctrl.categories">
         <a ui-sref="items({categId: $index})">
@@ -11,10 +18,7 @@
             {{ categ.name }}
           </span>
         </a>
-        {{ categ.name }}
       </li>
     </ul>
   </div>
-</div>
-<!--
-<ui-view></ui-view> -->
+</div> -->

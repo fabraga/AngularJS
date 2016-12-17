@@ -1,11 +1,10 @@
 <a ui-sref="home">Home</a>
 
 <div id="main" class="main">
-  <span>Menu Categories</span>
+  <span class="section-title">Menu Categories</span>
 
-  {{ menu.categories.length }}
-
-  <category-items id="categories"
-      categories="menu.categories">
-  </category-items>
+  <categories id="categories" categories="menu.categories">
+  </categories>
 </div>
+
+<ui-view></ui-view>

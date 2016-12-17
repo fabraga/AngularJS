@@ -4,15 +4,15 @@
   angular.module('MenuApp')
   .controller('CategoriesController', CategoriesController);
 
-  CategoriesController.$inject = ['categories'];
-  function CategoriesController(categories) {
+  CategoriesController.$inject = ['allCategories'];
+  function CategoriesController(allCategories) {
     var menu = this;
 
-    menu.$onInit = function () {
-      console.log("Categories: "+categories);
-    }
+    // menu.$onInit = function () {
+    //   console.log(allCategories);
+    // }
 
-    menu.items = categories;
+    menu.categories = allCategories;
   }
 
 })();
