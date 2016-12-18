@@ -8,11 +8,9 @@
   function CategoryController(items) {
     var category = this;
 
-    category.$onInit = function () {
-      console.log("Inside CategoryController");
-      console.log(items);
-    }
-
+    // category.$onInit = function () {
+    // }
+    //
     category.items = items;
   }
 

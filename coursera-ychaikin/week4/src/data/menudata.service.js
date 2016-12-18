@@ -24,15 +24,11 @@
 
     service.getItemsForCategory = function (categoryShortName) {
 
-      console.log("Inside getItemsForCategory");
-      console.log(categoryShortName);
-
       // var promise = $http( { method: "GET", url: ( "https://davids-restaurant.herokuapp.com/menu_items.json?category="+categoryShortName.trim() ) } );
 
       var promise = $http({method:'GET', url:'https://davids-restaurant.herokuapp.com/menu_items.json', params:{ category: categoryShortName } });
 
       promise.then(function (response) {
-        console.log(response.data);
         return response.data.menu_items;
 
       }).catch(function (error) {
