@@ -1,17 +1,14 @@
 body {
   font-size: 16px;
   text-align: center;
-}
-
-header {
-  position: relative;
   background-color: #cdf;
   padding: 20px;
+  position: relative;
 }
 
 .menu {
   position: relative;
-  display: inline-block;
+  display: block;
   background-color: #9bd;
   font-size: 1.2em;
   border-style: outset;
@@ -21,7 +18,6 @@ header {
 }
 
 .main {
-  position: relative;
   background-color: #7ac;
   font-size: .9em;
   margin: 20px 0 10px 0;
@@ -63,6 +59,17 @@ header {
   padding: 20px;
   box-shadow: inset 0 0 50px #333, 0 0 10px #000;
 }
+.item {
+  display: inline-block;
+  width: 100%;
+  height: 100px;
+  margin: 3px;
+  border: solid 1px #000;
+  border-radius: 8px;
+  padding: 5px 10px;
+  background-color: #ddd;
+  color: #237;
+}
 
 a {
   vertical-align: middle;
@@ -70,6 +77,10 @@ a {
 }
 a:hover, a:visited {
   text-decoration: none;
+}
+
+ui-view {
+
 }
 
 *[ui-sref] {

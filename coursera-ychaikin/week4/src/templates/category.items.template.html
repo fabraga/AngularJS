@@ -2,13 +2,12 @@
 <ul>
   <li class="category"
       ng-repeat="categ in $ctrl.categories.data"
-      data-title="{{ categ.id }} - {{ categ.short_name }}"
-      ui-sref="categories.items({categId: categ.short_name})">
+      ui-sref="items({category: categ.short_name})"
+      data-title="{{ categ.id }} - {{ categ.short_name }}">
     {{ categ.name }}
   </li>
 </ul>
 
-<ui-view></ui-view>
 
 <!-- <div class="categoryList">
     <ul class="listOrder">

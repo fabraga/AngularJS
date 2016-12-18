@@ -23,27 +23,28 @@
       .state('categories', {
         url: '/categories',
         templateUrl: 'src/templates/categories.template.html',
-        controller: 'CategoriesController as menu',
+        controller: 'MenuController as menu',
         resolve: {
-          allCategories: ['MenuDataService', function (MenuDataService) {
+          categories: ['MenuDataService', function (MenuDataService) {
             return MenuDataService.getAllCategories();
           }]
         }
       })
 
       // Items page
-      .state('categories.items', {
-        // url: '/items/{categId}',
+      .state('items', {
+        url: '/items/{category}',
         templateUrl: 'src/templates/items.template.html',
-        controller: 'ItemsController as category',
+        controller: 'CategoryController as category',
         resolve: {
-          categoryItems: ['MenuDataService', function (MenuDataService) {
-            return MenuDataService.getItemsForCategory(categId);
+          items: ['$stateParams','MenuDataService', function ($stateParams, MenuDataService) {
+            return MenuDataService.getItemsForCategory($stateParams.category);
           }]
-        },
-        params: {
-          categId: null
         }
+        // ,
+        // params: {
+        //   category: null
+        // }
       });
   }
 

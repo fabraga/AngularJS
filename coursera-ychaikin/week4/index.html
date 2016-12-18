@@ -7,24 +7,13 @@
     <title>REST API</title>
   </head>
   <body>
-    <header>
-      <h1>Welcome to our restaurant!</h1>
+    <h1>Welcome to our restaurant!</h1>
 
-      <!-- <div class="tabs">
-        <a ui-sref="home" ui-sref-active="activeTab">
-          <span class="glyphicon glyphicon-home"></span> Home
-        </a>
-        &emsp;<span class="glyphicon glyphicon-menu-left"></span>&emsp;
-        <a ui-sref="categories" ui-sref-active="activeTab">
-          <span class="glyphicon glyphicon-menu-hamburger"></span> Categories
-        </a>
-      </div> -->
+    <div class="container">
 
-      <div class="menu">
-        <ui-view></ui-view>
-      </div>
+      <ui-view></ui-view>
 
-    </header>
+    </div>
 
     <loading-spinner></loading-spinner>
 
@@ -46,8 +35,8 @@
     <!-- 'Menu' module artifacts -->
     <script src="src/menu/categories.component.js"></script>
     <script src="src/menu/items.component.js"></script>
-    <script src="src/menu/categories.controller.js"></script>
-    <script src="src/menu/items.controller.js"></script>
+    <script src="src/menu/menu.controller.js"></script>
+    <script src="src/menu/category.controller.js"></script>
 
   </body>
 </html>

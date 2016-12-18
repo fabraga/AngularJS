@@ -1,0 +1,10 @@
+<!-- LIST OF ITEMS -->
+<div class="col-md-4 col-sm-6 col-xs-12">
+  <ol>
+    <li class="item" ng-repeat="item in $ctrl.items.data.menu_items">
+      {{ item.name }} ({{ item.short_name }}) <br>
+      Small: {{ item.price_small }} - Large: {{ item.price_large }} <br>
+      Description: {{ item.description }}
+    </li>
+  </ol>
+</div>
