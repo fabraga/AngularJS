@@ -1,13 +1,13 @@
 <div class="menu">
-  <a ui-sref="home">Home</a> &lt;
+  <a ui-sref="home">Home</a>
+  <span class="glyphicon glyphicon-menu-left"></span>
   <a ui-sref="categories">Categories</a>
 </div>
 
-<div class="row">
-  <div id="main" class="main">
-    <span class="section-title">Menu Items</span>
+<div class="main">
+  <span class="section-title">Menu Items</span>
 
-    <items id="items" items="category.items"></items>
-
-  </div>  
+  <div class="row main-content">
+        <items items="category.items"></items>
+  </div>
 </div>

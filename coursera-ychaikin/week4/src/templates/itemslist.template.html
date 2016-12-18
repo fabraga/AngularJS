@@ -1,10 +1,14 @@
 <!-- LIST OF ITEMS -->
-<div class="col-md-4 col-sm-6 col-xs-12">
-  <ol>
-    <li class="item" ng-repeat="item in $ctrl.items.data.menu_items">
-      {{ item.name }} ({{ item.short_name }}) <br>
-      Small: {{ item.price_small }} - Large: {{ item.price_large }} <br>
-      Description: {{ item.description }}
-    </li>
-  </ol>
-</div>
+<ul>
+  <li class="item" ng-repeat="item in $ctrl.items.data.menu_items">
+    <div id="itemTitle">
+      {{ item.name }} ({{ item.short_name }})
+    </div>
+    <div class="itemDetais">
+      {{ item.description }}
+    </div>
+    <div class="itemBottom">
+      Price: <span>{{ item.price_small | currency }}</span> (small) / <span>{{ item.price_large | currency }}</span> (large)
+    </div>
+  </li>
+</ul>
