@@ -1,0 +1,16 @@
+<div><a ui-sref="home" class="routerButton">Close</a></div>
+
+<!-- SHOPPING LIST CONTROLLER -->
+<div id="list" class="controller">
+
+   <shopping-list-items id="list1"
+       items="shoppingList.items"
+       name="{{shoppingList.name}}"
+       total={{shoppingList.total}}
+       detect="{{shoppingList.detect}}"
+       on-remove="shoppingList.removeItem(index)">
+
+    <span class="warning">{{shoppingList.warning}}</span>
+  </shopping-list-items>
+
+</div> <!-- End of Shopping List Controllers -->
