@@ -6,46 +6,50 @@
 
   // ShoppingListController.$inject = ['ShoppingListService'];
   // function ShoppingListController(ShoppingListService) {
-  ShoppingListController.$inject = ['items'];
-  function ShoppingListController(items) {
-    var shoppingList = this;
+  ShoppingListController.$inject = ['items', 'ShoppingListService'];
+  function ShoppingListController(items, ShoppingListService) {
+    var list = this;
+    list.items = items;
 
-    shoppingList.items = items;
-
-    // shoppingList.$onInit = function () {
+    // list.$onInit = function () {
     //   ShoppingListService.getItems().then(function (result) {
-    //     shoppingList.items = result;
+    //     list.items = result;
     //   });
     // };
 
-    var originalName = "Shopping List";
+    var defaultName = "Shopping List";
 
-    shoppingList.name = originalName;
-    shoppingList.total = " (" + shoppingList.items.length + " items)";
+    // List (default)'s  name and total items
+    list.name = defaultName;
+    list.total = " (" + list.items.length + " items)";
 
-    shoppingList.detect = "cookie";
-    shoppingList.warning = "DETECTED!";
+    // Detection
+    list.detect = "Cookie";
+    list.warning = list.detect+ " detected!";
 
-    shoppingList.itemName = "";
-    shoppingList.itemQtty = "";
-
-    shoppingList.add = function () {
-      var warn = ShoppingListService.addItem(shoppingList.itemName, shoppingList.itemQtty);
+    // Add new item
+    list.addItem = function (newItem) {
+      var warn = ShoppingListService.addItem(newItem.name, newItem.qtty);
 
       if ( !warn ) {
-        shoppingList.warning = shoppingList.itemName + " ("+shoppingList.itemQtty+") added.";
-        shoppingList.total = " (" + shoppingList.items.length + " items)";
+        list.warning = list.itemName + " ("+list.itemQtty+") added.";
+        list.total = list.getTotal();
       } else {
-        shoppingList.warning = warn;
+        list.warning = warn;
       }
     };
 
-    shoppingList.removeItem = function (itemIndex) {
+    // Remove item
+    list.removeItem = function (itemIndex) {
       var remItem = ShoppingListService.removeItem(itemIndex);
 
-      shoppingList.warning = remItem[0].name + " removed (" + remItem[0].qtty+")";
-      shoppingList.total = " (" + shoppingList.items.length + " items)";
+      list.warning = remItem[0].name + " (" + remItem[0].qtty+") " + "removed";
+      list.total = list.getTotal();
     };
+
+    list.getTotal = function () {
+      return " (" + list.items.length + " items)";
+    }
 
   }
 

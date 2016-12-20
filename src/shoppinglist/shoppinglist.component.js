@@ -4,24 +4,37 @@
   angular.module('ShoppingList')
   .component('shoppingListItems', {
     templateUrl: 'src/shoppinglist/templates/items.template.html',
-    // controller: ShoppingListComponentController,
+    controller: ShoppingListComponentController,
     bindings: {
       items: '<',
       name: '@',
       total: '@',
       detect: '@',
-      onRemove: '&'
+      onRemove: '&',
+      onAdd: '&'
     }
   })
 
   ShoppingListComponentController.$inject = ['$rootScope', '$element', '$q', 'FitnessFilterService']
   function ShoppingListComponentController($rootScope, $element, $q, FitnessFilterService) {
     var $ctrl = this;
-    var totalItems;
 
+    // Remove item from index
     $ctrl.remove = function (myIndex) {
       $ctrl.onRemove({ index: myIndex });
     };
+
+    // New item data
+    var newItem = {};
+    newItem.name = "";
+    newItem.qtty = "";
+    $ctrl.newItem = newItem;
+    // Add new item passing key/value by reference
+    $ctrl.add = function () {
+      $ctrl.onAdd({ newItem: $ctrl.newItem });
+    }
+
+    var totalItems;
 
     $ctrl.$onInit = function () { // executed only once
       totalItems = 0;

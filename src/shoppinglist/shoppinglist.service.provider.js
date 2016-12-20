@@ -2,10 +2,10 @@
   'use strict';
 
   angular.module('ShoppingList')
-  .service('ShoppingListService', ShoppingListService);
+  .provider('ShoppingListService', ShoppingListServiceProvider);
 
   ShoppingListService.$inject = ['$q','$timeout']
-  function ShoppingListService($q, $timeout, maxItems) {
+  function ShoppingListService($q, $timeout) {
     var service = this;
 
     // List of Shopping Items
@@ -67,7 +67,20 @@
     service.removeItem = function (itemIndex) {
       return items.splice(itemIndex, 1);
     };
+  }
 
+  function ShoppingListServiceProvider() {
+    var provider = this;
+
+    provider.defaults = {
+      maxItems: 5
+    };
+
+    provider.$get = function () {
+      var sls = new ShoppingListService(provider.defaults.maxItems);
+
+      return sls;
+    };
   }
 
 })();

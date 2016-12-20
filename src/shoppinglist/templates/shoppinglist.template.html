@@ -8,7 +8,8 @@
        name="{{shoppingList.name}}"
        total={{shoppingList.total}}
        detect="{{shoppingList.detect}}"
-       on-remove="shoppingList.removeItem(index)">
+       on-remove="shoppingList.removeItem(index)"
+       on-add="shoppingList.addItem(newItem)">
 
     <span class="warning">{{shoppingList.warning}}</span>
   </shopping-list-items>

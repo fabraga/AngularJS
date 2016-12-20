@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('ShoppingList')
+  angular.module('FABRAGA')
   .config(RoutesConfig);
 
   RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
@@ -16,10 +16,10 @@
       // Home page
       .state('home', {
         url: '/',
-        templateUrl: 'src/shoppinglist/templates/home.template.html'
+        templateUrl: 'src/home/templates/home.template.html'
       })
 
-      // Premade list page
+      // ShoppingList page
       .state('shoppingList', {
         url: '/shopping-list',
         templateUrl: 'src/shoppinglist/templates/shoppinglist.template.html',
@@ -31,7 +31,7 @@
         }
       })
 
-      // Item Detail page
+      // ShoppingList's Item Detail page
       .state('shoppingList.itemDetail', {
         // url: '/item-detail/{itemId}',
         templateUrl: 'src/shoppinglist/templates/item-detail.template.html',
@@ -39,7 +39,20 @@
         params: {
           itemId: null
         }
+      })
+
+      // ShoppingList page
+      .state('registration', {
+        url: '/registration',
+        templateUrl: 'src/reg/templates/reg.template.html',
+        controller: 'RegistrationController as reg',
+        // resolve: {
+        //   items: ['RegistrationService', function (RegistrationService) {
+        //     return RegistrationService.getItems();
+        //   }]
+        // }
       });
+
   }
 
 
