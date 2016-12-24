@@ -60,7 +60,7 @@ body {
 #nav-list a:hover {
   background: #61122f;
   color: #fff;
-  border-radius: 8px 8px 0 0;
+  border-radius: 8px;
 }
 #nav-list a span {
   font-size: 1.8em;
@@ -133,6 +133,12 @@ a[ui-sref="admin.auth"] {
   /* End Header */
 }
 
+/********** Small devices only **********/
+@media (max-width: 991px) {
+  #nav-list a:hover {
+    border-radius: 8px 8px 0 0;
+  }
+}
 
 /********** Extra small devices only **********/
 @media (max-width: 767px) {

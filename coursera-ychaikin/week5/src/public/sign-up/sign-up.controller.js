@@ -11,6 +11,7 @@
     $ctrl.completed = false;
 
     $ctrl.items = items.menu_items;
+    $ctrl.faves = [];
 
     $ctrl.user = {};
     $ctrl.user.firstName = "";
@@ -29,7 +30,16 @@
       if ( $ctrl.user.fave !== undefined ) {
         $ctrl.user.fave = $ctrl.user.fave.toUpperCase();
         if ( $ctrl.user.fave.length > 0 ) {
+
+          $ctrl.faves = [];
+          for ( var i=0 ; i<$ctrl.items.length ; i++ ) {
+            if ( $ctrl.items[i].short_name.indexOf($ctrl.user.fave) !== -1) {
+              $ctrl.faves.push($ctrl.items[i]);
+            }
+          }
+
           return true;
+
         } else {
           return false;
         }
@@ -52,7 +62,7 @@
           if ( fave !== undefined ) {
             $ctrl.myFave = fave;
           } else {
-            $ctrl.myFave= null;
+            $ctrl.myFave = null;
           }
       }
     }
@@ -78,15 +88,8 @@
     }
 
     $ctrl.setFave = function(fave) {
-      $ctrl.myFave = fave;
-    }
-
-    $ctrl.getFaves = function () {
-      if ($ctrl.categIsValid()) {
-        $ctrl.faves = UserService.getFaveItems();
-      } else {
-        return null;
-      }
+      $ctrl.user.fave = fave;
+      $ctrl.faveSearch();
     }
 
   }

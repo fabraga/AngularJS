@@ -36,7 +36,7 @@
 
     service.getFaveItems = function () {
       return $http.get(ApiPath + '/menu_items.json?category=' + service.user.fave).then(function (response) {
-        return response.data.menu_items;
+        return response.data;
       })
       .catch( function (error) {
         console.log(error);

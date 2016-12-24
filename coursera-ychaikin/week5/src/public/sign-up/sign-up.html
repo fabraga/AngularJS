@@ -8,7 +8,7 @@
     <form ng-if="!signup.completed" id="signForm" name="signForm" novalidate="">
       <div class="inputField">
         <input type="text" name="firstName"
-          placeholder="firstName"
+          placeholder="First Name"
           ng-model="signup.user.firstName"
           required
           minlength="4"
@@ -20,7 +20,7 @@
       </div>
       <div class="inputField">
         <input type="text" name="lastName"
-          placeholder="lastName"
+          placeholder="Last Name"
           ng-model="signup.user.lastName"
           required minlength="4" ng-maxLength="12"><br>
         <span
@@ -79,7 +79,6 @@
   <div id="savedInfo" ng-if="signup.completed" class="text-center">Your information has been saved.</div>
 
   <sign-up-item ng-repeat="item in signup.faves"
-    ng-if="signup.categIsValid();"
     item="item"
     set-fave="signup.setFave(fave)">
   </sign-up-item>
