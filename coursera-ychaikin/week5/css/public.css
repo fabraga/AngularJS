@@ -227,7 +227,8 @@ h3.menu-item-title {
   opacity: 1;
 }
 #savedInfo {
-  font-size: 2em;
+  font-size: 1.6em;
+  font-weight: bold;
   color: #557c3e;
 }
 /* END OF SIGN-UP PAGE */
