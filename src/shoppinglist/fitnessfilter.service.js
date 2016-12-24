@@ -9,7 +9,10 @@
   function FitnessFilterService($q, $timeout) {
     var service = this;
 
-    service.checkName = function (name) {
+    service.checkName = function (name, $ctrl) {
+
+      var detect = "cookie";
+
       var deferred = $q.defer();
 
       var result = {
@@ -18,14 +21,13 @@
 
       $timeout(function () {
         // Check for cookies
-        if (name.toLowerCase().indexOf('cookie') === -1) {
+        if (name.toLowerCase().indexOf(detect) === -1) {
           deferred.resolve(result)
-        }
-        else {
-          result.message = "Stay away from cookies!";
+        } else {
+          $ctrl.warning = "Stay away from "+detect+"!";
           deferred.reject(result);
         }
-      }, 1000);
+      }, 700);
 
       return deferred.promise;
     };
@@ -45,7 +47,7 @@
           result.message = "That's too much!";
           deferred.reject(result);
         }
-      }, 500);
+      }, 300);
 
       return deferred.promise;
     };

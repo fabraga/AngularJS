@@ -1,6 +1,6 @@
 // Putting an 'x' in front of "describe" disable the test
 // xdescribe("OddEvenGenerator", function () {
-describe("OddEvenGenerator", function () {
+describe("Odd Even Generator", function () {
   var randomNumGenerator8;
   var randomNumGenerator3;
 

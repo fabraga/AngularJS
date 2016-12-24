@@ -7,6 +7,7 @@
   ShoppingListService.$inject = ['$q','$timeout']
   function ShoppingListService($q, $timeout, maxItems) {
     var service = this;
+    maxItems = maxItems || 8;
 
     // List of Shopping Items
     var items = [];
@@ -59,8 +60,10 @@
           qtty: itemQtty
         };
         items.push(item);
+        return itemName + " (" + itemQtty + ") added.";
+
       } else {
-        return ("Max items (" + maxItems +") reached.");
+        throw new Error("Max items (" + maxItems + ") reached.");
       }
     };
 

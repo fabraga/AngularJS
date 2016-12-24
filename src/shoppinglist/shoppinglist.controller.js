@@ -4,8 +4,6 @@
   angular.module('ShoppingList')
   .controller('ShoppingListController', ShoppingListController);
 
-  // ShoppingListController.$inject = ['ShoppingListService'];
-  // function ShoppingListController(ShoppingListService) {
   ShoppingListController.$inject = ['items', 'ShoppingListService'];
   function ShoppingListController(items, ShoppingListService) {
     var list = this;
@@ -23,20 +21,19 @@
     list.name = defaultName;
     list.total = " (" + list.items.length + " items)";
 
-    // Detection
-    list.detect = "Cookie";
-    list.warning = list.detect+ " detected!";
+    list.warning = "";
 
     // Add new item
     list.addItem = function (newItem) {
-      var warn = ShoppingListService.addItem(newItem.name, newItem.qtty);
-
-      if ( !warn ) {
-        list.warning = list.itemName + " ("+list.itemQtty+") added.";
-        list.total = list.getTotal();
-      } else {
-        list.warning = warn;
+      try {
+        var warn = ShoppingListService.addItem(newItem.name, newItem.qtty);
+      } catch (error) {
+        var warn = error.message;
       }
+
+      list.total = list.getTotal();
+      list.warning = warn;
+
     };
 
     // Remove item

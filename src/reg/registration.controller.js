@@ -19,7 +19,6 @@
     };
 
     reg.$onInit = function () {
-      console.log("Inside RegistrationController")
     };
   }
 

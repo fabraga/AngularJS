@@ -331,7 +331,7 @@ a[ui-sref]:hover {
   opacity: 0.75;
 }
 
-.error {
+.warning {
   background-color: #f99;
   padding: 5px 0 2px 0;
   box-shadow: inset 2px 2px 8px 1px rgba(0,0,0,0.25), inset 2px 2px 8px 1px rgba(0,0,0,0.20);
@@ -364,8 +364,9 @@ a[ui-sref]:hover {
   border: none;
 }
 .submit:hover {
-  color: #000;
+  color: darkgreen;
   box-shadow: inset 0 0 20px #fff, 5px 5px 5px #58a;
+  cursor: pointer;
 }
 /*********** Registration ***********/
 .ng-touched.ng-valid {
