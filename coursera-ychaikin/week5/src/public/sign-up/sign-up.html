@@ -78,10 +78,12 @@
 
   <div id="savedInfo" ng-if="signup.completed" class="text-center">Your information has been saved.</div>
 
-  <sign-up-item ng-if="!signup.completed"
-    ng-repeat="item in signup.faves"
-    item="item"
-    set-fave="signup.setFave(fave)">
-  </sign-up-item>
+  <div ng-if="!signup.completed">
+    <sign-up-item
+      ng-repeat="item in signup.faves"
+      item="item"
+      set-fave="signup.setFave(fave)">
+    </sign-up-item>
+  </div>
 
 </div>
