@@ -3,7 +3,7 @@
 
 angular.module('public')
 .component('signUpItems', {
-  templateUrl: 'src/public/sign-up/sign-up-items.html',
+  templateUrl: 'src/public/sign-up/sign-up-item.html',
   bindings: {
     item: '<',
     setFave: '&'

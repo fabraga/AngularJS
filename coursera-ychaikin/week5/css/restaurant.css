@@ -58,7 +58,9 @@ body {
   text-align: center;
 }
 #nav-list a:hover {
-  background: #E7E7E7;
+  background: #61122f;
+  color: #fff;
+  border-radius: 8px 8px 0 0;
 }
 #nav-list a span {
   font-size: 1.8em;
@@ -135,6 +137,9 @@ a[ui-sref="admin.auth"] {
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
   /* Header */
+  #nav-list a:hover {
+    border-radius: 0;
+  }
   .navbar-brand {
     padding-top: 10px;
     height: 80px;

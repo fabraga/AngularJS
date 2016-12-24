@@ -30,24 +30,25 @@
         return response.data;
       })
       .catch( function (error) {
-        console.log("Fave item not found:");
+        console.log(error);
+      });
+    };
+
+    service.getFaveItems = function () {
+      return $http.get(ApiPath + '/menu_items.json?category=' + service.user.fave).then(function (response) {
+        return response.data.menu_items;
+      })
+      .catch( function (error) {
         console.log(error);
       });
     };
 
     service.getUser = function () {
-      console.log(service.user);
       return service.user;
     }
 
     service.saveUser = function (newUser) {
-      console.log("UserService newUser:"+newUser);
-      console.log(newUser);
-
       service.user = newUser;
-
-      console.log("User favorite saved: ");
-      console.log(service.user.fave);
     };
   }
 

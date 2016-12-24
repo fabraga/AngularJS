@@ -25,38 +25,69 @@
 
     $ctrl.myFave = null;
 
-    $ctrl.faveSearch = function () {
+    $ctrl.categIsValid = function () {
       if ( $ctrl.user.fave !== undefined ) {
-
         $ctrl.user.fave = $ctrl.user.fave.toUpperCase();
+        if ( $ctrl.user.fave.length > 0 ) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
 
-        if ($ctrl.user.fave.length > 1 && $ctrl.user.fave.length < 5) {
+    $ctrl.faveIsValid = function () {
+      if ( $ctrl.categIsValid() ) {
+        var fave = $ctrl.user.fave;
+        if (fave.length > 1 && fave.length < 5) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    $ctrl.faveSearch = function () {
+      if ( $ctrl.faveIsValid() ) {
           var fave = UserService.getFaveItem($ctrl.user.fave);
           if ( fave !== undefined ) {
             $ctrl.myFave = fave;
-            console.log($ctrl.myFave);
           } else {
             $ctrl.myFave= null;
           }
-        }
-
       }
     }
 
     $ctrl.faveNotFound = function () {
-      if ($ctrl.user.fave !== undefined && ($ctrl.user.fave.length < 2 || $ctrl.user.fave.length > 4)) {
+      var fave = $ctrl.user.fave;
+      if (fave === undefined) {
         return false;
       }
-      return ($ctrl.myFave === undefined || $ctrl.myFave === null);
+      if (fave.length < 2 || fave.length > 4) {
+        return false;
+      }
+      return ($ctrl.myFave !== undefined && $ctrl.myFave.$$state !== null && $ctrl.myFave.$$state.value === undefined);
     }
 
     $ctrl.submit = function () {
-      if ( $ctrl.myFave !== null ) {
+      var ok = $ctrl.myFave;
+      if ( ok !== null && ok.$$state.value !== undefined ) {
         $ctrl.completed = true;
         UserService.signed = true;
         UserService.saveUser($ctrl.user);
       }
-    };
+    }
+
+    $ctrl.setFave = function(fave) {
+      $ctrl.myFave = fave;
+    }
+
+    $ctrl.getFaves = function () {
+      if ($ctrl.categIsValid()) {
+        $ctrl.faves = UserService.getFaveItems();
+      } else {
+        return null;
+      }
+    }
 
   }
 
