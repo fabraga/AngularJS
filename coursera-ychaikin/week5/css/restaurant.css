@@ -57,8 +57,11 @@ body {
   color: #951C49;
   text-align: center;
 }
+#nav-list .active a {
+  color: #f6b319;
+}
 #nav-list a:hover {
-  background: #61122f;
+  background: #a1526f;
   color: #fff;
   border-radius: 8px;
 }
@@ -67,16 +70,18 @@ body {
 }
 
 #phone {
-  margin-top: 5px;
 }
 #phone a { /* Phone number */
   text-align: right;
-  padding-bottom: 0;
+  min-height: 82px;
+  padding-top: 20px;
 }
 #phone div { /* We Deliver */
   color: #557c3e;
-  text-align: right;
-  padding-right: 15px;
+  text-align: center;
+}
+#phone div:hover {
+  color: #afa;
 }
 
 .navbar-header button.navbar-toggle, .navbar-header .icon-bar {
@@ -86,6 +91,14 @@ body {
   clear: both;
   margin-top: -30px;
 }
+
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus {
+  background: #81324f;
+  border-radius: 8px;
+}
+
 /* END HEADER */
 
 /* FOOTER */
@@ -138,6 +151,11 @@ a[ui-sref="admin.auth"] {
   #nav-list a:hover {
     border-radius: 8px 8px 0 0;
   }
+  .navbar .nav > .active > a,
+  .navbar .nav > .active > a:hover,
+  .navbar .nav > .active > a:focus {
+      border-radius: 8px 8px 0 0;
+  }
 }
 
 /********** Extra small devices only **********/
@@ -145,6 +163,11 @@ a[ui-sref="admin.auth"] {
   /* Header */
   #nav-list a:hover {
     border-radius: 0;
+  }
+  .navbar .nav > .active > a,
+  .navbar .nav > .active > a:hover,
+  .navbar .nav > .active > a:focus {
+      border-radius: 0;
   }
   .navbar-brand {
     padding-top: 10px;

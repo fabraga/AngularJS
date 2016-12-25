@@ -205,6 +205,14 @@ h3.menu-item-title {
   box-shadow: inset 0 0 20px #fff;
   cursor: pointer;
 }
+.submit.disabled,
+.submit[disabled] {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  opacity: .65;
+}
 .regSubmit {
   background-color: #557c3e;
 }
@@ -279,6 +287,9 @@ h3.menu-item-title {
   box-shadow: inset 0 0 50px #31020f, inset 0 0 10px #222;
   max-width: 500px;
   margin: 0 auto;
+}
+.faveInput {
+  text-transform:uppercase;
 }
 /* END OF MY INFO PAGE */
 
