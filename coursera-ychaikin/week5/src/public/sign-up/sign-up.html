@@ -11,8 +11,8 @@
           placeholder="First Name"
           ng-model="signup.user.firstName"
           required
-          minlength="4"
-          ng-maxLength="12"><br>
+          minlength="2"
+          ng-maxLength="15"><br>
         <span
           ng-if="(signForm.firstName.$error.minlength ||  signForm.firstName.$error.required) && signForm.firstName.$touched">
             Min. 2 characters
@@ -25,13 +25,13 @@
         <input type="text" name="lastName"
           placeholder="Last Name"
           ng-model="signup.user.lastName"
-          required minlength="4" ng-maxLength="12"><br>
+          required minlength="2" ng-maxLength="15"><br>
         <span
           ng-if="(signForm.lastName.$error.minlength ||  signForm.lastName.$error.required) && signForm.lastName.$touched">
             Min. 2 characters
         </span>
         <span ng-if="signForm.lastName.$error.maxlength && signForm.lastName.$touched">
-          Max. 25 characters
+          Max. 15 characters
         </span>
       </div>
 
