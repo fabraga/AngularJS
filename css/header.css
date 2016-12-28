@@ -1,0 +1,104 @@
+/********** HEADER **********/
+#header-nav {
+  background-color: #368;
+  border-radius: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: inset 0 -5px 30px #222, 0 5px 20px #fff;
+}
+#logo-img {
+  background: url('../img/logo.jpg') #7ac no-repeat center;
+  width: 54px;
+  height: 54px;
+  margin: 5px 20px 5px 0;
+  padding: 2px;
+  box-shadow: 1px 1px 5px #000;
+}
+.navbar-brand {
+  position: relative;
+  margin: 5px 0 0 5px;
+  padding: 5px;
+}
+.headTitle {
+  position: absolute;
+  width: max-content;
+  top: 20%;
+}
+.navbar-brand h1 { /* name */
+  font-family: 'Lora', serif;
+  color: #adf;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #222;
+  line-height: .8;
+  /*background-color: #aaf;*/
+}
+.navbar-brand p { /* certification */
+  /*background-color: #faa;*/
+  color: #035;
+  text-transform: uppercase;
+  text-align: left;
+  font-size: .6em;
+  font-weight: bold;
+  margin-top: 0;
+  text-shadow: 1px 1px 1px #9ce;
+  vertical-align: middle;
+  /*background: #fff;*/
+}
+.navbar-brand p span { /* certification */
+  vertical-align: middle;
+}
+.navbar-brand p a {
+  vertical-align: middle;
+}
+#collapsable-nav {
+  padding: 0;
+}
+#nav-list {
+  border-radius: 8px;
+  margin: 0;
+  padding: 0;
+  text-shadow: 1px 1px 1px #000;
+}
+#nav-list a {
+  color: #adf;
+  text-align: center;
+  border-radius: 8px;
+  text-shadow: 1px 1px 1px #000;
+}
+#nav-list .active a {
+  color: #fff;
+}
+#nav-list a:hover {
+  background: #146;
+  color: #cef;
+  border-radius: 8px;
+}
+#nav-list a:active {
+  background-color: #000;
+}
+
+#nav-list a span {
+  font-size: 1em;
+}
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+  border: solid 1px #adf;
+}
+.navbar-header button.navbar-toggle {
+  clear: both;
+  margin-top: -45px;
+}
+.navbar-header button.navbar-toggle:hover,
+.navbar-header button.navbar-toggle:active,
+.navbar-header button.navbar-toggle:focus {
+  background: #257;
+}
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus {
+  background: #035;
+  color: #fff;
+}
+/********** END OF HEADER **********/

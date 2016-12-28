@@ -1,0 +1,97 @@
+<!-- REGISTRATION CONTROLLER -->
+<div id="list" class="controller">
+  <h4>Registration Form</h4>
+
+  <fieldset>
+    <!-- <legend>Registration</legend> -->
+    <form id="regForm" name="regForm" novalidate>
+      <input id="email" type="email" name="email"
+        placeholder="Email *"
+        ng-model="reg.user.login.email"
+        required>
+      <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+        Format: user@domain
+      </span>
+
+      <input id="password" type="password" name="password"
+        placeholder="Password *"
+        ng-model="reg.user.login.password"
+        required minlength="8" ng-maxLength="20">
+      <span
+        ng-if="(regForm.password.$error.minlength ||  regForm.password.$error.required) && regForm.password.$touched">
+          Min. 8 characters
+      </span>
+      <span
+        ng-if="regForm.password.$error.maxlength && regForm.password.$touched">
+          Max. 20 characters
+      </span>
+
+      <input id="logPass" type="password" name="logPass"
+        placeholder="Confirm password *"
+        ng-model="reg.logPass"
+        required minlength="8" ng-maxLength="20">
+      <span
+        ng-if="(regForm.logPass.$error.minlength ||  regForm.logPass.$error.required) && regForm.logPass.$touched">
+          Min. 8 characters
+      </span>
+      <span
+        ng-if="regForm.logPass.$error.maxlength && regForm.passfirm.$touched">
+          Max. 20 characters
+      </span>
+
+      <input id="firstName" type="text" name="firstName"
+        placeholder="First name (optional)"
+        ng-model="reg.user.profile.firstName"
+        minlength="2" ng-maxLength="15">
+      <span
+        ng-if="(regForm.firstName.$error.minlength ||  regForm.firstName.$error.required) && regForm.firstName.$touched">
+          Min. 2 characters
+      </span>
+      <span
+        ng-if="regForm.firstName.$error.maxlength && regForm.firstName.$touched">
+          Max. 15 characters
+      </span>
+
+      <input id="lastName" type="text" name="lastName"
+        placeholder="Last name (optional)"
+        ng-model="reg.user.profile.lastName"
+        minlength="2" ng-maxLength="15">
+      <span
+        ng-if="(regForm.lastName.$error.minlength ||  regForm.lastName.$error.required) && regForm.lastName.$touched">
+          Min. 2 characters
+      </span>
+      <span
+        ng-if="regForm.lastName.$error.maxlength && regForm.lastName.$touched">
+          Max. 15 characters
+      </span>
+
+      <input id="username" type="text" name="username"
+        placeholder="Username (optional)"
+        ng-model="reg.user.login.username"
+        minlength="5" ng-maxLength="20">
+      <span
+        ng-if="(regForm.username.$error.minlength ||  regForm.username.$error.required) && regForm.username.$touched">
+          Min. 5 characters
+      </span>
+      <span
+        ng-if="regForm.username.$error.maxlength && regForm.username.$touched">
+          Max. 20 characters
+      </span>
+
+      <input id="phone" type="tel" name="phone"
+        placeholder="Phone # (optional)"
+        ng-model="reg.user.login.phone" pattern="(\d{3})-(\d{3})-(\d{4})">
+      <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+        Format: ###-###-####
+      </span>
+
+      <button type="submit" class="submit regSubmit"
+        ng-disabled="regForm.$invalid" ng-click="reg.submit()">Submit</button>
+
+      <div id="regMessage" class="noselect">
+        {{ reg.message }}
+      </div>
+    </form>
+  </fieldset>
+
+</div>

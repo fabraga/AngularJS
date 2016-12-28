@@ -1,0 +1,44 @@
+<!-- LOGIN CONTROLLER -->
+<div id="list" class="controller">
+  <h4>Login Form</h4>
+
+  <fieldset>
+    <!-- <legend>lOGIN</legend> -->
+    <form id="loginForm" name="loginForm" novalidate>
+
+      <input type="text" name="user"
+        placeholder="* Email / Username"
+        ng-model="reg.logUser"
+        required minlength="5" ng-maxLength="30">
+      <span
+        ng-if="(loginForm.user.$error.minlength ||  loginForm.user.$error.required) && loginForm.user.$touched">
+          Min. 5 characters
+      </span>
+      <span
+        ng-if="loginForm.user.$error.maxlength && loginForm.user.$touched">
+          Max. 30 characters
+      </span>
+
+      <input type="password" name="pass"
+        placeholder="* Password"
+        ng-model="reg.logPass"
+        required minlength="5" ng-maxLength="20">
+      <span
+        ng-if="(loginForm.pass.$error.minlength ||  loginForm.pass.$error.required) && loginForm.pass.$touched">
+          Min. 5 characters
+      </span>
+      <span
+        ng-if="loginForm.pass.$error.maxlength && loginForm.pass.$touched">
+          Max. 20 characters
+      </span>
+
+      <button type="submit" class="submit regSubmit"
+        ng-disabled="loginForm.$invalid" ng-click="reg.login()">Login</button>
+
+      <div id="regMessage" class="noselect">
+        {{ reg.message }}
+      </div>
+    </form>
+  </fieldset>
+
+</div>

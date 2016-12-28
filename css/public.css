@@ -1,0 +1,64 @@
+
+.tabRouterButton {
+  display: inline-block;
+  border: 2px solid #07f;
+  border-bottom: 0;
+  color: #073;
+  border-radius: 12px 12px 0 0;
+  padding: 5px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 20px 5px 0 5px;
+}
+.tabRouterButton:hover,
+.tabRouterButton:active,
+.tabRouterButton:focus {
+  background-color: #1a6;
+  border-color: #073;
+  color: white;
+  text-shadow: 0 0 5px #000;
+  /*box-shadow: none|h-shadow v-shadow blur spread color |inset|initial|inherit;*/
+  box-shadow: 3px 3px 10px 0 #666;
+}
+
+.controllers {
+  position: relative;
+}
+.controller {
+  position: absolute;;
+  display: inline-block;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin: 0 auto;
+  background-color: #7ac;
+  padding: 10px 10px 5px 10px;
+  border: solid 1px;
+  border-style: inset;
+  border-left-color: lightgray; /* firefox */
+  border-top-color: lightgray; /* firefox */
+  border-right-color: #fff; /* firefox */
+  border-bottom-color: #fff; /* firefox */
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: inset 4px 4px 4px 0 rgba(0,0,0,0.24)
+}
+
+#controllers {
+  display: inline-block;
+  margin: 20px;
+  background-color: #9ce;
+  padding: 15px 10px;
+  border-radius: 12px;
+  box-shadow: inset -10px -10px 50px #479, 10px 10px 30px #333;
+}
+#controllers > h3 {
+  color: #721;
+}
+#controllers > div {
+  font-size: 0.9em;
+}
+#controllers h2 {
+  margin: 5px 0 10px;
+}

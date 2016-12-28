@@ -1,0 +1,13 @@
+<div id="courses" class="container-fluid coursera">
+  <h3>Dublin Business School (DBS)</h3>
+  <div id="linkButtons">
+    <ul>
+      <li ng-repeat="module in $ctrl.course.modules">
+        <a class="linkButton"
+            ng-href={{module.path}} title={{module.path}}>
+          {{module.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

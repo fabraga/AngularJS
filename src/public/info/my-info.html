@@ -1,0 +1,50 @@
+<div class="container">
+  <h2 id="my-info-title" class="text-center">My Info</h2>
+
+  <div class="text-center" ng-if="!myinfo.isLogged();">
+    <a ui-sref="public.reg.login">Log in here!</a>
+  </div>
+
+  <fieldset>
+    <form id="userForm" ng-if="myinfo.isLogged();"
+      name="userForm" novalidate>
+      <div class="userField">
+        <span>First Name:</span><br>
+        <input type="text" name="firstName"
+          ng-model="myinfo.user.profile.firstName">
+      </div>
+      <div class="userField">
+        <span>Middle Name:</span><br>
+        <input type="text" name="middleName"
+          ng-model="myinfo.user.profile.middleName">
+      </div>
+
+      <br class="visible-xs">
+      <div class="userField">
+        <span>Last Name:</span><br>
+        <input type="text" name="lastName"
+          ng-model="myinfo.user.profile.lastName">
+      </div>
+      <div class="userField">
+        <span>Username:</span><br>
+        <input type="text" name="username"
+          ng-model="myinfo.user.login.username">
+      </div>
+
+      <br class="visible-xs">
+      <div class="userField">
+        <span>Email:</span><br>
+        <input type="email" name="email" disabled
+          ng-model="myinfo.user.login.email">
+      </div>
+
+      <div class="userField">
+        <span>Phone Number:</span><br>
+        <input type="text" name="phone"
+          ng-model="myinfo.user.login.phone" pattern="(\d{3})-(\d{3})-(\d{4})">
+      </div>
+
+    </form>
+  </fieldset>
+
+</div>

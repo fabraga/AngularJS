@@ -1,0 +1,14 @@
+<div id="courses" class="container-fluid coursera">
+  <h3>{{$ctrl.institution}} - {{$ctrl.graduated}}</h3>
+  <h4>AngularJS Assignments</h4>
+  <div id="linkButtons">
+    <ul>
+      <li ng-repeat="module in $ctrl.course.modules">
+        <a class="linkButton" target="_blank"
+            ng-href={{module.path}} title={{module.path}}>
+          {{module.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

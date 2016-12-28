@@ -4,80 +4,83 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fabraga.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/courses.css">
+    <link rel="stylesheet" href="css/reg.css">
+    <link rel="stylesheet" href="css/list.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oxygen:400,300,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
-    <title>Learning AngularJS</title>
+    <title>FABRAGA</title>
   </head>
   <body>
-    <div class="container" style="height:80px;">
-      <h1>Learning SPA with AngularJS</h1>
-    </div>
+    <!-- Fixed position loading indicator -->
+    <loading class="loading-indicator"></loading>
 
-    <div id="main" class="container coursera">
-      <h3>Coursera Assignments</h3>
-      <div class="linkButtons">
-        <a href="https://fabraga.github.io/AngularJS/coursera-ychaikin/week1/"
-           class="linkButton">Lunch Checker
-        </a>
-        <a href="https://fabraga.github.io/AngularJS/coursera-ychaikin/week2/"
-           class="linkButton">Shopping List Check Off
-        </a>
-        <a href="https://fabraga.github.io/AngularJS/coursera-ychaikin/week3/"
-           class="linkButton">Narrow It Down!
-        </a>
-        <a href="https://fabraga.github.io/AngularJS/coursera-ychaikin/week4/"
-           class="linkButton">Menu Category Items
-        </a>
-        <a href="https://fabraga.github.io/AngularJS/coursera-ychaikin/week5/"
-           class="linkButton">Sign Up & My Info
-        </a>
+    <header></header>
+
+    <ui-view>
+      <div class="text-center initial-loading">
+        <h3>Loading...</h3>
       </div>
-    </div>
+    </ui-view>
 
     <!-- Beginning of All Controllers -->
-    <div class="container-fluid controllers">
-      <h3>Practicing...</h3>
+    <!-- <div id="controllers" class="container-fluid">
       <div>
         Watchers: {{ $$watchersCount }}
       </div>
-
-      <div class="container-fluid">
-        <ui-view></ui-view>
-      </div>
-    </div><!-- End of All Controllers -->
-
-    <loading-spinner></loading-spinner>
-
+    </div> -->
+    <!-- End of All Controllers -->
 
     <!-- Libraries -->
-    <script src="lib/jquery-3.1.1.min.js"></script>
+    <!-- <script src="lib/jquery-3.1.1.min.js"></script> -->
+    <script src="lib/jquery-2.1.4.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-ui-router.min.js"></script>
 
-    <!-- Modules -->
-    <script src="src/spinner/spinner.module.js"></script>
-    <script src="src/home/fabraga.module.js"></script>
-    <script src="src/shoppinglist/shoppinglist.module.js"></script>
-    <script src="src/reg/registration.module.js"></script>
+    <!-- Main Module -->
+    <script src="src/fabraga.module.js"></script>
 
-    <!-- Routes -->
-    <script src="src/routes.js"></script>
+    <!-- Common Modules -->
+    <script src="src/common/common.module.js"></script>
+    <!-- <script src="src/common/menu.service.js"></script> -->
+    <script src="src/common/user.service.js"></script>
 
-    <!-- 'Spinner' module artifacts -->
-    <script src="src/spinner/loadingspinner.component.js"></script>
+    <!-- Public Modules -->
+    <script src="src/public/public.module.js"></script>
+    <script src="src/public/public.routes.js"></script>
+    <!-- <script src="src/public/list/list.module.js"></script> -->
+    <!-- <script src="src/public/reg/reg.module.js"></script> -->
 
-    <!-- 'ShoppingList' module artifacts -->
-    <script src="src/shoppinglist/shoppinglist.component.js"></script>
-    <script src="src/shoppinglist/shoppinglist.controller.js"></script>
-    <!-- <script src="src/shoppinglist/shoppinglist.service.provider.js"></script> -->
-    <script src="src/shoppinglist/shoppinglist.service.js"></script>
-    <script src="src/shoppinglist/item.controller.js"></script>
-    <script src="src/shoppinglist/fitnessfilter.service.js"></script>
+    <!-- 'Loading' module artifacts -->
+    <script src="src/common/loading/loading.component.js"></script>
+    <script src="src/common/loading/loading.interceptor.js"></script>
+
+    <!-- 'Home' artifacts -->
+    <script src="src/public/home/home.controller.js"></script>
+    <script src="src/public/home/header.component.js"></script>
+
+    <!-- Mind/Study/Education -->
+    <script src="src/public/mind/coursera/coursera.component.js"></script>
+    <script src="src/public/mind/study.controller.js"></script>
+    <script src="src/public/mind/study.service.js"></script>
 
     <!-- 'Registration' module artifacts -->
+    <script src="src/public/reg/reg.controller.js"></script>
+    <script src="src/public/info/my-info.controller.js"></script>
     <!-- <script src="src/reg/registration.component.js"></script> -->
-    <script src="src/reg/registration.controller.js"></script>
     <!-- <script src="src/reg/registration.service.js"></script> -->
+
+    <!-- 'List' module artifacts -->
+    <script src="src/public/list/list.component.js"></script>
+    <script src="src/public/list/list.controller.js"></script>
+    <!-- <script src="src/list/list.service.provider.js"></script> -->
+    <script src="src/public/list/list.service.js"></script>
+
+    <script src="src/public/list/item.controller.js"></script>
+    <script src="src/public/list/fitnessfilter.service.js"></script>
 
   </body>
 </html>

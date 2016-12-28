@@ -1,0 +1,23 @@
+<div><a ui-sref="public.home" class="routerButton">Close</a></div>
+
+<!-- LIST CONTROLLER -->
+<div id="list" class="controller">
+
+  <!-- List Header -->
+  <div class="listHeader">
+    <input class="input addItemName" type="text" ng-model="list.newItem.name" placeholder="item name">
+    <input class="input addItemQtty" type="text" ng-model="list.newItem.qtty" placeholder="qtty">
+    <button class="addItem" ng-click="list.addItem();">Add</button>
+  </div>
+
+  <list-items
+      items="list.items"
+      name="{{list.name}}"
+      total={{list.total}}
+      message="{{list.message}}"
+      on-remove="list.removeItem(index)">
+
+    <span class="listMessage">{{list.message}}</span>
+  </list-items>
+
+</div> <!-- End of List Controllers -->

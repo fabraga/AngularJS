@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="courseTitle">
+    <h3>{{study.courses[0].title}}</h3>
+  </div>
+  <coursera
+    institution="{{study.courses[0].institution}}"
+    graduated="{{study.courses[0].graduated}}">
+  </coursera>
+
+  <div class="courseTitle">
+    <h3>{{study.courses[1].title}}</h3>
+  </div>
+  <div id="courses" class="container-fluid coursera">
+    <h3>{{study.courses[1].institution}} - {{study.courses[1].graduated}}</h3>
+    <h4>Modules</h4>
+    <div id="linkButtons">
+      <ul>
+        <li ng-repeat="module in study.courses[1].modules">
+          <span class="spanButton">
+            {{module.name}}
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
