@@ -1,13 +1,14 @@
 /********** HEADER **********/
 #header-nav {
   background-color: #368;
-  border-radius: 0;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  box-shadow: inset 0 -5px 30px #222, 0 5px 20px #fff;
+  /*padding: 0;*/
+  box-shadow: inset 0 -5px 30px #134, 0 5px 20px #fff;
+}
+.navbar-header {
+  position: relative;
 }
 #logo-img {
+  cursor: pointer;
   background: url('../img/logo.jpg') #7ac no-repeat center;
   width: 54px;
   height: 54px;
@@ -15,43 +16,40 @@
   padding: 2px;
   box-shadow: 1px 1px 5px #000;
 }
-.navbar-brand {
-  position: relative;
-  margin: 5px 0 0 5px;
-  padding: 5px;
+#headTitle {
 }
-.headTitle {
-  position: absolute;
-  width: max-content;
-  top: 20%;
+.navbar-brand {
+  /*background-color: #000;*/
+  display: inline-block;
+  position: relative;
+  top: 8px;
+  padding: 5px;
+  text-align: left;
+  height: inherit;
+  white-space: nowrap;
 }
 .navbar-brand h1 { /* name */
+  cursor: pointer;
   font-family: 'Lora', serif;
   color: #adf;
   font-size: 1.3em;
   text-transform: uppercase;
   font-weight: bold;
   text-shadow: 1px 1px 1px #222;
+  margin: 0;
   line-height: .8;
   /*background-color: #aaf;*/
 }
-.navbar-brand p { /* certification */
-  /*background-color: #faa;*/
+.navbar-brand span { /* certification */
+  cursor: pointer;
   color: #035;
   text-transform: uppercase;
-  text-align: left;
-  font-size: .6em;
+  font-size: .7em;
   font-weight: bold;
-  margin-top: 0;
+  /*margin-top: 5px;*/
   text-shadow: 1px 1px 1px #9ce;
   vertical-align: middle;
   /*background: #fff;*/
-}
-.navbar-brand p span { /* certification */
-  vertical-align: middle;
-}
-.navbar-brand p a {
-  vertical-align: middle;
 }
 #collapsable-nav {
   padding: 0;
@@ -67,6 +65,7 @@
   text-align: center;
   border-radius: 8px;
   text-shadow: 1px 1px 1px #000;
+  padding: 12px;
 }
 #nav-list .active a {
   color: #fff;
@@ -87,8 +86,8 @@
   border: solid 1px #adf;
 }
 .navbar-header button.navbar-toggle {
-  clear: both;
-  margin-top: -45px;
+  /*clear: both;*/
+  /*margin-top: -45px;*/
 }
 .navbar-header button.navbar-toggle:hover,
 .navbar-header button.navbar-toggle:active,
@@ -102,3 +101,46 @@
   color: #fff;
 }
 /********** END OF HEADER **********/
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+  /* Header */
+  .navbar-brand {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translate(0, -50%);
+  }
+  .headTitle {
+    background-color: #000;
+  }
+  .navbar-brand h1 { /* Name */
+    font-size: 6vw; /* 1vw = 1% of viewport width */
+  }
+  .navbar-brand span { /* status, certification, etc. */
+    display: none;
+  }
+
+  #nav-list a {
+    color: #adf;
+    text-align: center;
+    border-radius: 0;
+  }
+  #nav-list a:hover {
+    border-radius: 0;
+  }
+  .navbar .nav > .active > a,
+  .navbar .nav > .active > a:hover,
+  .navbar .nav > .active > a:focus {
+      border-radius: 0;
+  }
+
+  #collapsable-nav a { /* Collapsed nav menu text */
+    font-size: 1.2em;
+    display: block;
+  }
+  #collapsable-nav a span { /* Collapsed nav menu glyph */
+    font-size: 1em;
+    margin-right: 5px;
+  }
+  /***** END of Extra small devices only *****/

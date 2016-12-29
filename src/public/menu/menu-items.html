@@ -1,0 +1,15 @@
+<div class="containerfluid">
+  <h2 id="menu-categories-title" class="text-center">
+    {{ menuItems.items.category.name}} Menu
+  </h2>
+  <div class="text-center">
+    {{ menuItems.items.category.special_instructions}}
+  </div>
+
+
+  <menu-item ng-repeat="menuItem in menuItems.items.menu_items"
+             menu-item="menuItem">
+  </menu-item>
+
+
+</div>

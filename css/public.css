@@ -62,3 +62,23 @@
 #controllers h2 {
   margin: 5px 0 10px;
 }
+
+/***** Super Extra large devices only *****/
+@media (min-width: 1770px) {
+  .col-xxx {
+    width: 14%;
+  }
+}
+/***** END of Super Extra large devices *****/
+/********** Extra large devices only **********/
+@media (min-width: 1600px) and (max-width: 1770px) {
+  .col-xx {
+    width: 16.5%;
+  }
+}
+@media (min-width: 1440px) and (max-width: 1599px) {
+  .col-xl-2 {
+    width: 20%;
+  }
+}
+/********** END of Extra large devices **********/

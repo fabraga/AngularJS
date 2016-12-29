@@ -13,6 +13,18 @@ body {
   font-family: "Comic Sans", Helvetica, sans-serif;
   font-size: 16px;
 }
+#main {
+  position: relative;
+  height: 675px;
+  padding: 0 20px;
+  overflow-y: auto;
+  /*background-color: #fff;*/
+}
+#main-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
 h1 {
   color: white;
   font-size: 1em;
@@ -120,48 +132,3 @@ button:focus {
           box-shadow: none;
   opacity: .65;
 }
-
-/********** Extra small devices only **********/
-@media (max-width: 767px) {
-  /* Header */
-  #nav-list a {
-    color: #adf;
-    text-align: center;
-    border-radius: 0;
-  }
-  #nav-list a:hover {
-    border-radius: 0;
-  }
-  .navbar .nav > .active > a,
-  .navbar .nav > .active > a:hover,
-  .navbar .nav > .active > a:focus {
-      border-radius: 0;
-  }
-  .navbar-brand {
-    /*height: 60px;*/
-  }
-  .headTitle {
-    top: 12%;
-  }
-  .navbar-brand h1 { /* Name */
-    /*background-color: #ddd;*/
-    line-height: 100%;
-    margin: 0;
-    padding: 0;
-    vertical-align: middle;
-    font-size: 5vw; /* 1vw = 1% of viewport width */
-  }
-  .navbar-brand p { /* status, certification, etc. */
-    display: none;
-  }
-
-  #collapsable-nav a { /* Collapsed nav menu text */
-    font-size: 1.2em;
-    display: block;
-  }
-  #collapsable-nav a span { /* Collapsed nav menu glyph */
-    font-size: 1em;
-    margin-right: 5px;
-  }
-
-  /* End Header */

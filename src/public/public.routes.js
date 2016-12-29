@@ -49,17 +49,6 @@
         controller: 'MyInfoController',
         controllerAs: 'myinfo'
       })
-      // List page
-      .state('public.list', {
-        url: '/list',
-        templateUrl: 'src/public/list/snippets/list.html',
-        controller: 'ListController as list',
-        resolve: {
-          items: ['ListService', function (ListService) {
-            return ListService.getItems();
-          }]
-        }
-      })
       // Courses page
       .state('public.mind', {
         url: '/courses',
@@ -71,8 +60,40 @@
           }]
         }
       })
-
-      // ShoppingList's Item Detail page
+      // Menu page
+      .state('public.menu', {
+        url: '/menu',
+        templateUrl: 'src/public/menu/menu.html',
+        controller: 'MenuController as menu',
+        resolve: {
+          categs: ['MenuService', function (MenuService) {
+            return MenuService.getCategories();
+          }]
+        }
+      })
+      .state('public.menu-items', {
+        url: '/menu/{category}',
+        templateUrl: 'src/public/menu/menu-items.html',
+        controller: 'MenuItemsController',
+        controllerAs: 'menuItems',
+        resolve: {
+          items: ['$stateParams','MenuService', function ($stateParams, MenuService) {
+            return MenuService.getMenuItems($stateParams.category);
+          }]
+        }
+      })
+      // List page
+      .state('public.list', {
+        url: '/list',
+        templateUrl: 'src/public/list/snippets/list.html',
+        controller: 'ListController as list',
+        resolve: {
+          items: ['ListService', function (ListService) {
+            return ListService.getItems();
+          }]
+        }
+      })
+      // List's Item Detail page
       .state('public.list.itemDetail', {
         // url: '/item-detail/{itemId}',
         templateUrl: 'src/public/list/snippets/item-detail.html',

@@ -1,0 +1,45 @@
+/* FOOTER */
+.panel-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #071727;
+  color: #257;
+  text-shadow: -1px -1px 1px #000;
+  border-top: 0;
+  box-shadow: 0 -5px 10px #000;
+}
+.panel-footer div.row {
+  margin-bottom: 5px;
+}
+#hours, #address {
+  line-height: 2;
+}
+#hours > span, #address > span {
+  font-size: 1.3em;
+}
+#address p {
+  color: #557c3e;
+  font-size: .8em;
+  line-height: 1.8;
+}
+#testimonials {
+  font-style: italic;
+  max-height: 150px;
+  overflow-y: auto;
+}
+#testimonials p:nth-child(2) {
+  margin-top: 15px;
+}
+#copyLine {
+  font-size: 0.8em;
+}
+a[ui-sref="admin.auth"] {
+  color: #368;
+}
+/* END FOOTER */

@@ -6,9 +6,11 @@
     <link rel="stylesheet" href="css/fabraga.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/courses.css">
     <link rel="stylesheet" href="css/reg.css">
     <link rel="stylesheet" href="css/list.css">
+    <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oxygen:400,300,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
     <title>FABRAGA</title>
@@ -19,11 +21,13 @@
 
     <header></header>
 
-    <ui-view>
-      <div class="text-center initial-loading">
-        <h3>Loading...</h3>
-      </div>
-    </ui-view>
+    <div id="main">
+      <ui-view>
+        <div class="text-center initial-loading">
+          <h3>Loading...</h3>
+        </div>
+      </ui-view>
+    </div>
 
     <!-- Beginning of All Controllers -->
     <!-- <div id="controllers" class="container-fluid">
@@ -32,6 +36,9 @@
       </div>
     </div> -->
     <!-- End of All Controllers -->
+
+    <foot></foot>
+
 
     <!-- Libraries -->
     <!-- <script src="lib/jquery-3.1.1.min.js"></script> -->
@@ -58,9 +65,10 @@
     <script src="src/common/loading/loading.component.js"></script>
     <script src="src/common/loading/loading.interceptor.js"></script>
 
-    <!-- 'Home' artifacts -->
+    <!-- 'Home'/'Header'/'Footer' artifacts -->
     <script src="src/public/home/home.controller.js"></script>
     <script src="src/public/home/header.component.js"></script>
+    <script src="src/public/home/footer.component.js"></script>
 
     <!-- Mind/Study/Education -->
     <script src="src/public/mind/coursera/coursera.component.js"></script>
@@ -81,6 +89,14 @@
 
     <script src="src/public/list/item.controller.js"></script>
     <script src="src/public/list/fitnessfilter.service.js"></script>
+
+    <!-- MENU Artifacts-->
+    <script src="src/common/menu.service.js"></script>
+    <script src="src/public/menu/menu.controller.js"></script>
+    <script src="src/public/menu/menu-categ.component.js"></script>
+    <script src="src/public/menu/menu-items.controller.js"></script>
+    <script src="src/public/menu/menu-item.component.js"></script>
+    <!-- End of MENU Artifacts-->
 
   </body>
 </html>

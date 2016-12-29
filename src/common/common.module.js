@@ -12,6 +12,7 @@ angular.module('common', [])
 })
 .constant('ApiHomePath', 'https://fabraga.herokuapp.com')
 .constant('ApiMenuPath', 'https://fabraga-menu.herokuapp.com')
+.constant('ApiMenuChinaPath', 'https://fabraga-angular-menu.herokuapp.com')
 .config(Config);
 
 Config.$inject = ['$httpProvider'];
