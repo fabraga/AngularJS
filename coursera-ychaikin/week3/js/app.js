@@ -5,7 +5,7 @@
   .controller('NarrowItDownController', NarrowItDownController)
   .service('MenuSearchService', MenuSearchService)
   .directive('foundItems', FoundItemsDirective)
-  .constant('BasePath', "davids-restaurant.herokuapp.com");
+  .constant('BasePath', "http://davids-restaurant.herokuapp.com");
 
   function FoundItemsDirective() {
     var ddo = {
