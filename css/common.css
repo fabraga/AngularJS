@@ -26,9 +26,5 @@
 .ui-view-placeholder {
     margin-top: 60px;
 }
-a[ui-sref]:hover {
-  display: inline-block;
-  cursor: pointer;
-  text-shadow: 0 0 10px #f94;
-}
+
 /********** END OF ui-view **********/
