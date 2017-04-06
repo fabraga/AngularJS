@@ -47,7 +47,7 @@
   }
 
   MenuSearchService.$inject = ['$http', 'BasePath']
-  function MenuSearchService($http. BasePath) {
+  function MenuSearchService($http, BasePath) {
     var service = this;
     var items = [];
 
