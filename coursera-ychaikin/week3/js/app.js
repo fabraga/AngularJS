@@ -5,7 +5,7 @@
   .controller('NarrowItDownController', NarrowItDownController)
   .service('MenuSearchService', MenuSearchService)
   .directive('foundItems', FoundItemsDirective)
-  .constant('BasePath', "http://davids-restaurant.herokuapp.com");
+  .constant('BasePath', "https://davids-restaurant.herokuapp.com");
 
   function FoundItemsDirective() {
     var ddo = {
@@ -26,9 +26,10 @@
 
     menu.searchTerm = "";
     menu.found = [];
+    menu.warning = "";
 
     menu.getMessage = function() {
-      return (menu.found.length > 0 ? "" : "Nothing found.");
+      return (menu.found.length > 0 ? "" : menu.warning);
     }
 
     menu.narrowItDown = function () {
@@ -36,6 +37,7 @@
         menu.found = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
       } else {
         menu.found = [];
+        menu.warning = "Nothing found.";
         menu.getMessage();
       }
     };
